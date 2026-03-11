@@ -62,7 +62,8 @@ header {
   margin-bottom: 1.3rem;
 }
 
-/* section headings reduced and lighter */
+
+/* section headings */
 
 .section-block h2 {
   font-family: "Playfair Display", serif;
@@ -74,7 +75,7 @@ header {
 }
 
 
-/* elegant gold divider */
+/* elegant gold divider under headings */
 
 .section-block h2::after {
   content: "";
@@ -100,7 +101,7 @@ header {
 }
 
 
-/* email styling – normal text, gold underline */
+/* email styling – black text with gold underline */
 
 .section-block a {
   color: #2b2b2b;
@@ -160,29 +161,119 @@ footer {
 }
 
 
-/* ---------- Article Archive ---------- */
+/* ================================================= */
+/* ---------- ARTICLE ARCHIVE (INDEX PAGE) ---------- */
+/* ================================================= */
 
-.article-list {
-  list-style: disc;
-  padding-left: 1.5rem;
-  font-family: "EB Garamond", serif;
-}
 
-.article-list li {
+/* back link */
+
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
   margin-bottom: 0.4rem;
+
+  font-family: "EB Garamond", serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+
+  color: #777;
+  text-decoration: none;
 }
 
-.article-list a {
-  color: #2b2b2b;
-  text-decoration: underline;
-}
-
-.article-list a:hover {
+.back-link:hover {
   color: #c8a46b;
 }
 
 
-/* ---------- Article Page ---------- */
+/* archive heading */
+
+.section-heading {
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+
+
+/* elegant divider under archive heading */
+
+.section-heading::after {
+  content: "";
+  display: block;
+  width: 34px;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #c8a46b,
+    transparent
+  );
+  margin: 0.35rem auto 0.7rem auto;
+}
+
+
+/* archive container */
+
+.archive-list {
+  max-width: 700px;
+  margin: 2rem auto 0 auto;
+}
+
+
+/* article rows */
+
+.archive-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid #ddd8ce;
+}
+
+.archive-list li {
+  border-bottom: 1px solid #ddd8ce;
+}
+
+
+/* row layout */
+
+.archive-list a {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 1rem 0;
+
+  text-decoration: none;
+  color: #2b2b2b;
+
+  font-family: "EB Garamond", serif;
+}
+
+.archive-list a:hover {
+  color: #c8a46b;
+}
+
+
+/* article title */
+
+.art-title {
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+
+/* publication year */
+
+.art-year {
+  font-size: 14px;
+  color: #888;
+}
+
+
+/* ===================================== */
+/* ---------- ARTICLE PAGE -------------- */
+/* ===================================== */
 
 .article-body {
   max-width: 820px;
@@ -199,91 +290,4 @@ footer {
 
 .article-body p {
   margin-bottom: 1rem;
-}
-.archive-list {
-  max-width: 700px;
-  margin: 2rem auto 0 auto;
-}
-
-.archive-list ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  border-top: 1px solid #ddd8ce;
-}
-
-.archive-list li {
-  border-bottom: 1px solid #ddd8ce;
-}
-
-.archive-list a {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding: 1rem 0;
-  text-decoration: none;
-  color: #2b2b2b;
-  font-family: "EB Garamond", serif;
-}
-
-.archive-list a:hover {
-  color: #c8a46b;
-}
-
-.art-title {
-  font-size: 18px;
-  line-height: 1.4;
-}
-
-.art-year {
-  font-size: 14px;
-  color: #888;
-}
-/* ---------- Archive Page Heading ---------- */
-
-.section-heading {
-  font-family: "Playfair Display", serif;
-  font-size: 20px;
-  font-weight: 400;
-  text-align: center;
-  margin-top: 0.6rem;
-  margin-bottom: 0.2rem;
-  letter-spacing: 0.02em;
-}
-
-/* elegant gold divider under archive heading */
-
-.section-heading::after {
-  content: "";
-  display: block;
-  width: 34px;
-  height: 1px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    #c8a46b,
-    transparent
-  );
-  margin: 0.35rem auto 0.8rem auto;
-}
-
-
-/* ---------- Back Link (← APK Law) ---------- */
-
-.back-link {
-  display: block;
-  text-align: center;
-  margin-top: 1rem;
-  margin-bottom: 0.3rem;
-
-  font-family: "EB Garamond", serif;
-  font-size: 14px;
-  letter-spacing: 1px;
-
-  color: #777;
-  text-decoration: none;
-}
-
-.back-link:hover {
-  color: #c8a46b;
 }
