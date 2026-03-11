@@ -51,7 +51,7 @@ header {
   font-size: 28px;
   margin: 0.15rem 0 0.3rem 0;
   letter-spacing: 0.10em;
-  font-weight: 600;
+  font-weight: 800;
 }
 
 
@@ -199,4 +199,43 @@ footer {
 
 .article-body p {
   margin-bottom: 1rem;
+}
+.archive-list {
+  max-width: 700px;
+  margin: 2rem auto 0 auto;
+}
+
+.archive-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid #ddd8ce;
+}
+
+.archive-list li {
+  border-bottom: 1px solid #ddd8ce;
+}
+
+.archive-list a {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 1rem 0;
+  text-decoration: none;
+  color: #2b2b2b;
+  font-family: "EB Garamond", serif;
+}
+
+.archive-list a:hover {
+  color: #c8a46b;
+}
+
+.art-title {
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.art-year {
+  font-size: 14px;
+  color: #888;
 }
