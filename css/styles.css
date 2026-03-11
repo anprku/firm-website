@@ -239,7 +239,7 @@ header {
   max-width: 120px !important;
   height: auto !important;
   margin: 1 auto !important;
-  filter: brightness(0.55) contrast(1.7) !important;
+  filter: brightness(0.55) contrast(1.4) !important;
 }
 /* homepage sections */
 .section-block {
