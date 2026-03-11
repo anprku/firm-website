@@ -240,6 +240,7 @@ header {
   max-width: 120px !important;
   height: auto !important;
   margin: 1 auto !important;
+  margin-bottom: -0.2rem;
   filter: brightness(0.55) contrast(1.4) !important;
 }
 /* homepage sections */
