@@ -291,3 +291,8 @@ footer {
 .article-body p {
   margin-bottom: 1rem;
 }
+.article-disclaimer {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  color: #555;
+}
