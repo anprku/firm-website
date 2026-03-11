@@ -42,7 +42,13 @@
       padding: 1.6rem 1rem 1.2rem;
       border-bottom: 1px solid #e4e0d8;
     }
-
+    header {
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    }
+    main {
+     padding-top: 1rem;
+     }
     .logo-wrap {
       display: inline-flex;
       flex-direction: column;
