@@ -1,194 +1,89 @@
-<link rel="stylesheet" href="css/styles.css">
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>APK Law</title>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>APK Law</title>
+
+<link rel="stylesheet" href="css/styles.css">
+
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
 </head>
+
+
 <body>
 
-<!-- ═══════ PAGE 1 – HOME ═══════ -->
-<div class="page active" id="page-home">
-  <header>
-    <a class="logo-wrap" onclick="showPage('home')" href="#">
-      <img src="assets/logo.png"> 
-    </a>
-    <div class="site-title">APK Law</div>
-  </header>
 
-  <main>
-    <div class="container">
+<header>
 
-      <!-- Professional Notice -->
-      <div class="section-block">
-        <h2 class="section-heading">Professional Notice</h2>
-        <div class="gold-rule" style="margin-bottom:1.8rem;"></div>
-        <p>The regulations governing the legal profession in India impose certain restrictions on advocates with respect to solicitation and advertising of professional services. Accordingly, this website contains only limited information concerning the practice.</p>
-        <p>The material made available here is intended solely for general informational purposes and does not constitute legal advice, nor should it be construed as an invitation or solicitation to engage professional services.</p>
-        <p>Further information regarding the practice, including areas of work and professional engagements, may be made available upon request. Visitors seeking such information or wishing to make professional enquiries may write to <a href="mailto:info@apklaw.in">info@apklaw.in</a></p>
-      </div>
-
-      <hr class="section-sep" />
-
-      <!-- Notes and Reflections -->
-      <div class="section-block">
-        <h2 class="section-heading">Notes and Reflections</h2>
-        <div class="gold-rule" style="margin-bottom:1.8rem;"></div>
-        <p class="notes-para">This section presents analytical notes, case notes, and short reflections on questions of law. The writings offer considered observations on legal developments and matters of professional interest. Together, they form a small archive of notes and reflections gathered over time. The collection of writings may be accessed here.</p>
-        <a class="btn-browse" href="articles/index.html">Browse Articles</a>
-      </div>
-
-    </div>
-  </main>
-
-  <footer>
-    <div class="container">Bengaluru, India &nbsp;|&nbsp; © APK 2026</div>
-  </footer>
+<div class="logo-wrap">
+<img src="assets/logo.png" alt="APK Law Tree Logo">
 </div>
 
+<h1 class="site-title">APK Law</h1>
 
-<!-- ═══════ PAGE 2 – ARCHIVE ═══════ -->
-<div class="page" id="page-archive">
-  <div class="archive-header">
-    <div><a class="back-link" onclick="showPage('home')" href="#">← APK Law</a></div>
-    <div class="gold-rule" style="margin: 0 auto 1rem;"></div>
-    <h1 class="section-heading" style="margin-bottom:0;">Notes and Reflections</h1>
-  </div>
-  <main style="flex:1;">
-    <div class="container">
-      <div class="archive-list">
-        <ul id="article-list"></ul>
-      </div>
-    </div>
-  </main>
-  <footer><div class="container">Bengaluru, India &nbsp;|&nbsp; © APK 2026</div></footer>
-</div>
+</header>
 
 
-<!-- ═══════ PAGE 3 – ARTICLE ═══════ -->
-<div class="page" id="page-article">
-  <div class="article-header">
-    <div><a class="article-back" onclick="showPage('archive')" href="#">← Notes and Reflections</a></div>
-    <div class="gold-rule" style="margin: 0 auto 1.2rem;"></div>
-    <h1 class="article-title" id="art-title"></h1>
-    <p class="article-meta" id="art-meta"></p>
-  </div>
-  <main style="flex:1;">
-    <div class="container">
-      <div class="article-body" id="art-body"></div>
-    </div>
-  </main>
-  <footer><div class="container">Bengaluru, India &nbsp;|&nbsp; © APK 2026</div></footer>
-</div>
+
+<main>
 
 
-<script>
-const articles = [
-  {
-    id: 1,
-    title: "The Standard of Review in Constitutional Courts: A Note on Proportionality",
-    year: "2026", date: "February 2026",
-    body: `
-      <p>The doctrine of proportionality has, over the course of recent decades, acquired a distinctive prominence in constitutional adjudication across jurisdictions that share a common commitment to fundamental rights review. Its migration from administrative law into the domain of constitutional analysis reflects a broader effort by courts to supply a structured and transparent framework for evaluating the permissibility of state action that bears upon constitutionally protected interests.</p>
-      <h2>I. Origins and Structure</h2>
-      <p>Proportionality, in its developed form, operates as a multi-limbed inquiry. The analysis proceeds through several stages: the legitimacy of the legislative objective, the rational connection between the measure and that objective, the necessity of the particular means chosen, and the balancing of benefits against the costs imposed on the right-holder. Different legal systems have adopted and adapted this framework with varying degrees of fidelity to its originating form.</p>
-      <p>In the German tradition, from which much of the contemporary doctrinal structure derives, proportionality (Verhältnismäßigkeitsgrundsatz) functions as a general constitutional principle applicable across the range of fundamental rights. The Federal Constitutional Court has consistently employed this framework as a central instrument of rights adjudication, and its approach has exercised considerable influence over the development of European constitutional law more broadly.</p>
-      <h2>II. Reception in Indian Constitutional Law</h2>
-      <p>The Indian Supreme Court's engagement with proportionality has been, in methodological terms, somewhat uneven. Earlier decisions applied a less structured approach, frequently conflating the proportionality inquiry with the reasonableness standard drawn from Article 14 of the Constitution. The trajectory of the jurisprudence has, however, moved in the direction of a more systematic adoption of proportionality analysis, particularly in cases implicating the fundamental rights recognised under Part III.</p>
-      <p>The decision in <em>Modern Dental College and Research Centre v. State of Madhya Pradesh</em> is among the more careful early treatments of the doctrine in the constitutional context. The Court's observations in <em>K.S. Puttaswamy v. Union of India</em> further consolidated the position, with several concurring opinions expressly endorsing proportionality as the appropriate standard of review in fundamental rights cases.</p>
-      <h2>III. Observations</h2>
-      <p>The adoption of structured proportionality analysis represents a meaningful advance in the methodological apparatus of rights adjudication. It supplies a framework that is, at least in principle, capable of disciplining judicial reasoning and rendering decisions more susceptible to critical scrutiny. A recurrent difficulty in proportionality review lies in the calibration of the final balancing stage — when a court proceeds to weigh the importance of the legislative objective against the severity of the limitation on the protected right, it necessarily exercises a form of evaluative judgment for which the proportionality framework itself provides limited prescriptive guidance.</p>
-    `
-  },
-  {
-    id: 2,
-    title: "Arbitral Seat and Venue: Persistent Ambiguities in Indian Arbitration Law",
-    year: "2025", date: "October 2025",
-    body: `
-      <p>The distinction between the juridical seat of an arbitration and the physical venue at which hearings are conducted has been a source of considerable doctrinal difficulty in Indian arbitration law. The significance of the distinction lies in its consequences for the supervisory jurisdiction of the courts: the courts of the seat possess curial jurisdiction over the arbitral proceedings, while the courts at the venue do not.</p>
-      <h2>I. The Seat-Venue Distinction in Principle</h2>
-      <p>The concept of the juridical seat is a creature of private international law and not merely a description of geography. The seat determines the <em>lex arbitri</em>, the law governing the arbitral procedure, and confers jurisdiction on the courts of that jurisdiction to supervise and support the arbitration. A change of physical venue for the convenience of hearings does not, without more, alter the seat of the arbitration.</p>
-      <p>This distinction, well established in English arbitration law, has been received with less consistency in the Indian context. The Arbitration and Conciliation Act, 1996, employs the term "place of arbitration" without clearly distinguishing between the seat and the venue, and the courts have not always resolved this ambiguity in a manner consistent with the underlying principles.</p>
-      <h2>II. The Supreme Court's Treatment</h2>
-      <p>A series of Supreme Court decisions has sought to clarify the position, with varying degrees of success. The decisions in <em>Bharat Aluminium Co. v. Kaiser Aluminium Technical Services</em>, <em>Union of India v. Hardy Exploration and Production</em>, and <em>Brahmani River Pellets Ltd. v. Kamachi Industries Ltd.</em> together represent a body of jurisprudence on the question, though they do not speak with complete consistency.</p>
-      <h2>III. A Brief Observation</h2>
-      <p>The doctrinal uncertainty in this area carries real costs for parties to arbitration agreements. Uncertainty as to which court possesses supervisory jurisdiction can result in parallel proceedings before courts in different jurisdictions, with attendant delay and expense. The trajectory of the more recent decisions suggests a movement toward a seat-centric approach more closely aligned with international arbitral practice.</p>
-    `
-  },
-  {
-    id: 3,
-    title: "On the Interpretation of Exclusion Clauses in Commercial Contracts",
-    year: "2025", date: "May 2025",
-    body: `
-      <p>Exclusion clauses, by their nature, seek to define and limit the legal consequences that would otherwise flow from a breach of contract or from tortious conduct. Their interpretation has long occupied a significant place in the common law of contract, and the principles developed by courts across common law jurisdictions reflect a sustained effort to reconcile the demands of commercial certainty with the imperative of fairness between contracting parties.</p>
-      <h2>I. The Interpretive Framework</h2>
-      <p>The common law approach to the interpretation of exclusion clauses proceeds from a position of textual primacy tempered by contextual sensitivity. The clause must, in the first instance, be clearly incorporated into the contract. Subject to incorporation, the question of construction requires the court to ascertain, from the words used and the surrounding context, whether the clause covers the breach in issue.</p>
-      <p>The contra proferentem rule — the principle that ambiguity in a clause drafted by one party should be resolved against that party — has traditionally operated as a tool of interpretation in this context. Its application has, however, been progressively qualified in the commercial sphere.</p>
-      <h2>II. The Position in India</h2>
-      <p>Indian contract law, drawing from the Indian Contract Act, 1872, does not replicate all of the common law mechanisms for the control of exclusion clauses. The interpretive principles applied by Indian courts to exclusion clauses are broadly consistent with the common law approach. The Supreme Court has affirmed that such clauses are to be interpreted strictly, that any ambiguity operates against the party seeking to rely on the exclusion, and that clear words are required to exclude liability for fundamental breach or for negligence.</p>
-      <h2>III. Closing Observation</h2>
-      <p>The treatment of exclusion clauses illustrates a broader tension in contract law between the principle of freedom of contract and the protective concerns that animate much of the modern law of obligations. The task of the court is to determine, through careful interpretation, what the agreed allocation of risk is — not to substitute its own assessment of what the allocation ought to have been.</p>
-    `
-  },
-  {
-    id: 4,
-    title: "Locus Standi in Public Interest Litigation: A Reconsideration",
-    year: "2024", date: "August 2024",
-    body: `
-      <p>Public interest litigation, as it has developed in India since the late 1970s, represents a distinctive and consequential departure from the traditional common law conception of standing. The relaxation of locus standi requirements by the Supreme Court in a series of foundational decisions fundamentally altered the terms on which individuals and organisations could approach the constitutional courts with grievances touching on the public interest.</p>
-      <h2>I. The Doctrinal Foundation</h2>
-      <p>The traditional rule requiring a petitioner to demonstrate a personal legal right that has been infringed was substantially relaxed through a series of decisions in the late 1970s and early 1980s. The Supreme Court articulated a broadened conception of standing under Article 32 of the Constitution that permitted any member of the public to invoke the constitutional jurisdiction where fundamental rights of persons unable to approach the court were alleged to be at stake.</p>
-      <h2>II. Subsequent Development and Criticism</h2>
-      <p>The trajectory of public interest litigation has not uniformly followed the access-oriented rationale that animated its original development. The jurisdiction has been invoked in matters that bear little relationship to the rights of disadvantaged or marginalised groups, and the courts have at times exercised supervisory functions over domains of policy that sit more naturally within the province of the executive and legislative branches.</p>
-      <h2>III. Reflection</h2>
-      <p>The development of public interest litigation reflects, at a deep level, a set of choices about the institutional role of the judiciary in a constitutional democracy. The concern arises when the expanded jurisdiction is deployed in ways that subordinate other constitutional values — the separation of powers, the institutional competence of other branches, the systemic interest in principled adjudication — to a form of judicial governance that the constitutional text does not clearly authorise.</p>
-    `
-  },
-  {
-    id: 5,
-    title: "A Note on the Duty of Disclosure in Insurance Contracts",
-    year: "2024", date: "March 2024",
-    body: `
-      <p>Insurance contracts have traditionally been governed by the principle of <em>uberrimae fidei</em> — utmost good faith — which imposes upon the proposer a duty to disclose all material facts known to them that would influence the judgment of a prudent insurer in deciding whether to accept the risk and on what terms.</p>
-      <h2>I. The Content of the Duty</h2>
-      <p>The duty of disclosure is proactive in character. It requires the proposer to volunteer information without waiting to be asked. The criterion of materiality is an objective one: the test is whether the fact in question would have been considered material by a prudent insurer, not by the proposer. The consequences of non-disclosure or misrepresentation, where material, are correspondingly severe — the insurer is entitled to avoid the contract <em>ab initio</em>.</p>
-      <h2>II. Reform and Reconsideration</h2>
-      <p>The harshness of this regime has attracted criticism, and several common law jurisdictions have undertaken legislative reform. The Insurance Act 2015 in England and Wales introduced a modified disclosure duty for non-consumer contracts, replacing the duty to volunteer information with a duty to make a fair presentation of the risk, and confining the remedy of avoidance to cases of deliberate or reckless breach.</p>
-      <h2>III. Concluding Observation</h2>
-      <p>The principle of utmost good faith reflects a sound and important policy: insurance markets function on the basis of information, and the integrity of that information is a precondition for the sound operation of the market. A mature insurance law must find a means of maintaining the informational integrity of the market while ensuring that the remedial consequences of non-disclosure bear a reasonable relationship to the nature of the breach.</p>
-    `
-  }
-];
 
-function showPage(name, articleId) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-' + name).classList.add('active');
-  window.scrollTo({ top: 0 });
-  if (name === 'archive') renderArchive();
-  if (name === 'article' && articleId) renderArticle(articleId);
-}
+<section class="section-block">
 
-function renderArchive() {
-  document.getElementById('article-list').innerHTML = articles.map(a => `
-    <li>
-      <a href="#" onclick="showPage('article', ${a.id}); return false;">
-        <span class="art-title">${a.title}</span>
-        <span class="art-year">${a.year}</span>
-      </a>
-    </li>
-  `).join('');
-}
+<h2>Professional Notice</h2>
 
-function renderArticle(id) {
-  const a = articles.find(x => x.id === id);
-  if (!a) return;
-  document.getElementById('art-title').textContent = a.title;
-  document.getElementById('art-meta').textContent = a.date;
-  document.getElementById('art-body').innerHTML = a.body;
-}
-</script>
+<p>
+The regulations governing the legal profession in India impose certain restrictions on advocates with respect to solicitation and advertising of professional services. Accordingly, this website contains only limited information concerning the practice.
+</p>
+
+<p>
+The material made available here is intended solely for general informational purposes and does not constitute legal advice, nor should it be construed as an invitation or solicitation to engage professional services.
+</p>
+
+<p>
+Further information regarding the practice, including areas of work and professional engagements, may be made available upon request. Visitors seeking such information or wishing to make professional enquiries may write to <a href="mailto:info@apklaw.in">info@apklaw.in</a>.
+</p>
+
+</section>
+
+
+
+<hr class="section-sep">
+
+
+
+<section class="section-block">
+
+<h2>Notes and Reflections</h2>
+
+<p>
+This section presents analytical notes, case notes, and short reflections on questions of law. The writings offer considered observations on legal developments and matters of professional interest. Together, they form a small archive of notes and reflections gathered over time. The collection of writings may be accessed here.
+</p>
+
+<a class="btn-browse" href="articles/index.html">Browse Articles</a>
+
+</section>
+
+
+
+</main>
+
+
+
+<footer>
+
+<p>Bengaluru, India | © APK 2026</p>
+
+</footer>
+
+
 
 </body>
+
 </html>
