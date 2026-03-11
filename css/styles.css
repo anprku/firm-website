@@ -272,3 +272,24 @@ main h2 {
   margin-top: 0.05rem;
   margin-bottom: 0.05rem;
 }
+/* tighten spacing between homepage sections */
+.section-block {
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
+/* reduce space between heading and paragraph text */
+.section-block p:first-of-type {
+  margin-top: 0.4rem;
+}
+
+/* increase breathing space after Notes heading */
+.section-block + .section-block {
+  margin-top: 1rem;
+}
+
+/* tighten space around browse button */
+.btn-browse {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
