@@ -36,64 +36,43 @@
       padding: 0 1rem;
     }
 
-    /* ── HEADER ── */
-      header {
-        text-align: center;
-        padding: 0.2rem 1rem 0.1rem;
-        border-bottom: 1px solid #e4e0d8;
-      }
-    main {
-     padding-top: 0.1rem;
-     }
-    .logo-wrap {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.05rem;
-      margin-bottom: 0;
+    /* HEADER LAYOUT */
+header {
+  text-align: center;
+  padding: 0.15rem 1rem 0.1rem;
+  border-bottom: 1px solid #e4e0d8;
 }
-     /* controls logo size and darkness */
-    .logo-wrap img {
-      width: 150px;
-      height: auto;
-      filter: brightness(0.5) contrast(1.5);
-    }
-    .site-title {
-        margin-top: 0rem;
-      margin-bottom: 0.15rem;
-      }
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-    }
 
-    .logo-wrap img {
-      width: 90px;
-      height: 90px;
-      object-fit: contain;
-      /* black background becomes invisible on ivory bg */
-      mix-blend-mode: multiply;
-      filter: rightness(0.78) contrast(1.05);
-      opacity: 0.82;
-      margin-bottom: 0.2rem;
-    }
+/* LOGO STACK */
+.logo-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 0;
+}
 
-    .site-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.55rem;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      color: var(--text);
-    }
+/* TREE SIZE + DARKNESS */
+.logo-wrap img {
+  width: 120px;
+  height: auto;
+  filter: brightness(0.55) contrast(1.1);
+  margin-bottom: -2px;
+}
 
-    /* ── GOLD RULE ── */
-    .gold-rule {
-      width: 48px;
-      height: 1px;
-      background: var(--gold);
-      margin: 0 auto;
-      opacity: 0.7;
-    }
+/* APK LAW TITLE */
+.site-title {
+  margin-top: 0;
+  margin-bottom: 0.2rem;
+}
+
+/* GOLD RULE */
+.gold-rule {
+  width: 48px;
+  height: 1px;
+  background: #C6A15B;
+  margin: 0.3rem auto 0.6rem auto;
+}
 
     /* ── MAIN ── */
     main { flex: 1; padding: 3.5rem 2rem 4rem; }
@@ -110,13 +89,13 @@
       font-size: 1.35rem;
       font-weight: 400;
       letter-spacing: 0.04em;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.3rem;
       color: var(--text);
     }
 
     .section-block p {
       font-size: 0.95rem;
-      line-height: 1.45;
+      line-height: 1.5;
       text-align: justify;
       color: var(--muted);
       margin-bottom: 0.4rem;
