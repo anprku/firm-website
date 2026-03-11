@@ -239,3 +239,51 @@ footer {
   font-size: 14px;
   color: #888;
 }
+/* ---------- Archive Page Heading ---------- */
+
+.section-heading {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 0.6rem;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.02em;
+}
+
+/* elegant gold divider under archive heading */
+
+.section-heading::after {
+  content: "";
+  display: block;
+  width: 34px;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #c8a46b,
+    transparent
+  );
+  margin: 0.35rem auto 0.8rem auto;
+}
+
+
+/* ---------- Back Link (← APK Law) ---------- */
+
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+
+  font-family: "EB Garamond", serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+
+  color: #777;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  color: #c8a46b;
+}
