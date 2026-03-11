@@ -121,7 +121,7 @@ header {
     /* ── SECTION DIVIDER ── */
     .section-sep {
       max-width: 850px;
-      margin: 0.8rem auto;
+      margin: 0.25rem auto;
       border: none;
       border-top: 1px solid #ddd8ce;
     }
@@ -139,7 +139,7 @@ header {
       text-decoration: none;
       cursor: pointer;
       background: transparent;
-      margin-top: 0.15rem;
+      margin-top: 0.05rem;
       transition: border-color 0.25s, color 0.25s, background 0.25s;
     }
     .btn-browse:hover {
