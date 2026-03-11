@@ -139,7 +139,8 @@ header {
       text-decoration: none;
       cursor: pointer;
       background: transparent;
-      margin-top: 0.05rem;
+      margin-top: 0.02rem;
+      margin-bottom: 0.1rem
       transition: border-color 0.25s, color 0.25s, background 0.25s;
     }
     .btn-browse:hover {
@@ -249,4 +250,16 @@ header {
 /* article reading column */
 .article-body {
   max-width: 820px;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 2px;
+  background: #c8a46b;
+  margin: 0.35rem auto 0.25rem auto;
+}
+#notes .section-title::after {
+  margin-bottom: 0.6rem;
 }
