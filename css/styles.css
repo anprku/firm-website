@@ -39,7 +39,7 @@
     /* HEADER LAYOUT */
 header {
   text-align: center;
-  padding: 0.15rem 1rem 0.1rem;
+  padding: 0.15rem 1rem 0.05rem;
   border-bottom: 1px solid #e4e0d8;
 }
 
@@ -62,8 +62,12 @@ header {
 
 /* APK LAW TITLE */
 .site-title {
-  margin-top: 0;
-  margin-bottom: 0.2rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  margin-top: 0.15;
+  margin-bottom: 0.15rem;
 }
 
 /* GOLD RULE */
@@ -84,14 +88,14 @@ header {
       text-align: center;
     }
 
-    .section-heading {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      font-weight: 400;
-      letter-spacing: 0.04em;
-      margin-bottom: 0.3rem;
-      color: var(--text);
-    }
+.section-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  margin-top: 0.6rem;
+  margin-bottom: 0.25rem;
+}
 
     .section-block p {
       font-size: 0.95rem;
