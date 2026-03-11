@@ -55,7 +55,7 @@
     .logo-wrap img {
       width: 120px;
       height: auto;
-      filter: brightness(0.65) contrast(1.05);
+      filter: brightness(0.5) contrast(1.1);
     }
     .site-title {
         margin-top: 0.1rem;
@@ -73,6 +73,7 @@
       mix-blend-mode: multiply;
       filter: rightness(0.78) contrast(1.05);
       opacity: 0.82;
+      margin-bottom: 0.2rem;
     }
 
     .site-title {
