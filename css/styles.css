@@ -1,19 +1,19 @@
-/* ============================= */
-/* APK LAW – MASTER STYLESHEET  */
-/* ============================= */
+/* ============================== */
+/* APK LAW – COMPLETE STYLESHEET */
+/* ============================== */
 
-/* -------- Base Layout -------- */
+/* ---------- Base ---------- */
 
 body {
   margin: 0;
   padding: 0;
-  background: #f5f3ee;
+  background: #f4f2ec;
   color: #2b2b2b;
   font-family: "EB Garamond", serif;
   line-height: 1.6;
 }
 
-/* Main reading column */
+/* reading column */
 
 main {
   max-width: 820px;
@@ -21,50 +21,48 @@ main {
   padding: 0 20px;
 }
 
-/* -------- Header -------- */
+/* ---------- Header ---------- */
 
 header {
   text-align: center;
-  padding-top: 1.2rem;
+  padding-top: 1rem;
   padding-bottom: 0.4rem;
   border-bottom: 1px solid #ded8cc;
 }
 
-/* Tree logo */
+/* logo */
 
 .logo-wrap img {
-  width: 70px;
+  width: 150px;
   display: block;
-  margin: 0 auto -4px auto;
+  margin: 0 auto -12px auto;
   filter: contrast(1.25);
 }
 
-/* Site title */
+/* site title */
 
 .site-title {
   font-family: "Playfair Display", serif;
   font-size: 28px;
-  letter-spacing: 0.5px;
   margin: 0;
+  letter-spacing: 0.5px;
 }
 
-/* -------- Section Blocks -------- */
+/* ---------- Sections ---------- */
 
 .section-block {
-  margin-top: 1.2rem;
-  margin-bottom: 1.2rem;
+  margin-top: 1.3rem;
+  margin-bottom: 1.3rem;
 }
-
-/* Section headings */
 
 .section-block h2 {
   font-family: "Playfair Display", serif;
-  text-align: center;
   font-size: 26px;
-  margin-bottom: 0.2rem;
+  text-align: center;
+  margin-bottom: 0.25rem;
 }
 
-/* Gold divider */
+/* gold divider */
 
 .section-block h2::after {
   content: "";
@@ -72,18 +70,18 @@ header {
   width: 36px;
   height: 2px;
   background: #c8a46b;
-  margin: 0.3rem auto 0.5rem auto;
+  margin: 0.35rem auto 0.55rem auto;
 }
 
-/* Paragraph spacing */
+/* paragraphs */
 
 .section-block p {
-  margin-top: 0.5rem;
+  margin-top: 0.45rem;
   margin-bottom: 0.9rem;
   text-align: justify;
 }
 
-/* -------- Divider between sections -------- */
+/* divider between sections */
 
 .section-sep {
   max-width: 820px;
@@ -92,24 +90,31 @@ header {
   border-top: 1px solid #ddd8ce;
 }
 
-/* -------- Browse Articles Button -------- */
+/* ---------- Browse Button ---------- */
 
 .btn-browse {
-  display: inline-block;
-  padding: 10px 22px;
+  display: block;
+  width: fit-content;
+  margin: 0.8rem auto;
+  padding: 10px 24px;
+
   border: 1px solid #c8a46b;
-  text-decoration: none;
-  color: #333;
+  background: transparent;
+
+  font-family: "EB Garamond", serif;
   letter-spacing: 2px;
-  font-size: 13px;
-  margin-top: 0.5rem;
+  text-transform: uppercase;
+  font-size: 14px;
+
+  color: #2b2b2b;
+  text-decoration: none;
 }
 
 .btn-browse:hover {
-  background: #f0ece4;
+  background: #eee9df;
 }
 
-/* -------- Footer -------- */
+/* ---------- Footer ---------- */
 
 footer {
   text-align: center;
@@ -120,7 +125,23 @@ footer {
   color: #666;
 }
 
-/* -------- Article Pages -------- */
+/* ---------- Article Archive ---------- */
+
+.article-list {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
+.article-list li {
+  margin-bottom: 0.4rem;
+}
+
+.article-list a {
+  color: #3a2c7a;
+  text-decoration: underline;
+}
+
+/* ---------- Article Page ---------- */
 
 .article-body {
   max-width: 820px;
