@@ -9,8 +9,8 @@
       --footer:    #666;
       --gold:      #C6A15B;
       --gold-dim:  #d9b97a22;
-      --max-w:     1300px;
-      --read-w:    900px;
+      --max-w:     1250px;
+      --read-w:    820px;
     }
 
     html { scroll-behavior: smooth; }
@@ -39,7 +39,7 @@
     /* HEADER LAYOUT */
 header {
   text-align: center;
-  padding: 0.15rem 1rem 0.05rem;
+  padding: 0.15rem 1rem 0.15rem;
   border-bottom: 1px solid #e4e0d8;
 }
 
@@ -49,7 +49,7 @@ header {
   flex-direction: column;
   align-items: center;
   gap: 0;
-  margin-bottom: 0;
+  margin-bottom: 0.15;
 }
 
 /* TREE SIZE + DARKNESS */
@@ -57,7 +57,7 @@ header {
   width: 120px;
   height: auto;
   filter: brightness(0.55) contrast(1.1);
-  margin-bottom: -2px;
+  margin-bottom: 0px;
 }
 
 /* APK LAW TITLE */
@@ -83,8 +83,8 @@ header {
 
     /* ── SHARED SECTION BLOCK ── */
     .section-block {
-      max-width: 900px;
-      margin: 0 auto 1rem;
+      max-width: 850px;
+      margin: 1 auto 1rem;
       text-align: center;
     }
 
@@ -93,8 +93,8 @@ header {
   font-size: 1.35rem;
   font-weight: 400;
   letter-spacing: 0.04em;
-  margin-top: 0.6rem;
-  margin-bottom: 0.25rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
     .section-block p {
@@ -120,7 +120,7 @@ header {
 
     /* ── SECTION DIVIDER ── */
     .section-sep {
-      max-width: 900px;
+      max-width: 850px;
       margin: 0.8rem auto;
       border: none;
       border-top: 1px solid #ddd8ce;
@@ -238,12 +238,12 @@ header {
   width: 150px !important;
   max-width: 120px !important;
   height: auto !important;
-  margin: 0 auto !important;
-  filter: brightness(0.55) contrast(1.9) !important;
+  margin: 1 auto !important;
+  filter: brightness(0.55) contrast(1.7) !important;
 }
 /* homepage sections */
 .section-block {
-  max-width: 900px;
+  max-width: 850px;
 }
 
 /* article reading column */
