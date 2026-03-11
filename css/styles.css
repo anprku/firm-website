@@ -9,8 +9,8 @@
       --footer:    #666;
       --gold:      #C6A15B;
       --gold-dim:  #d9b97a22;
-      --max-w:     1250px;
-      --read-w:    820px;
+      --max-w:     1300px;
+      --read-w:    900px;
     }
 
     html { scroll-behavior: smooth; }
@@ -43,7 +43,7 @@
         border-bottom: 1px solid #e4e0d8;
       }
     main {
-     padding-top: 0.4rem;
+     padding-top: 0.2rem;
      }
     .logo-wrap {
       display: inline-flex;
@@ -53,7 +53,7 @@
       
      /* controls logo size and darkness */
     .logo-wrap img {
-      width: 120px;
+      width: 150px;
       height: auto;
       filter: brightness(0.5) contrast(1.1);
     }
@@ -66,8 +66,8 @@
     }
 
     .logo-wrap img {
-      width: 86px;
-      height: 86px;
+      width: 90px;
+      height: 90px;
       object-fit: contain;
       /* black background becomes invisible on ivory bg */
       mix-blend-mode: multiply;
@@ -98,8 +98,8 @@
 
     /* ── SHARED SECTION BLOCK ── */
     .section-block {
-      max-width: 650px;
-      margin: 0 auto;
+      max-width: 900px;
+      margin: 0 auto 1rem;
       text-align: center;
     }
 
@@ -114,10 +114,10 @@
 
     .section-block p {
       font-size: 0.95rem;
-      line-height: 1.78;
+      line-height: 1.45;
       text-align: justify;
       color: var(--muted);
-      margin-bottom: 1.15rem;
+      margin-bottom: 0.4rem;
     }
 
     .section-block p a {
@@ -135,8 +135,8 @@
 
     /* ── SECTION DIVIDER ── */
     .section-sep {
-      max-width: 650px;
-      margin: 3.5rem auto;
+      max-width: 900px;
+      margin: 0.8rem auto;
       border: none;
       border-top: 1px solid #ddd8ce;
     }
