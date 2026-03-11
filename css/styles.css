@@ -39,7 +39,7 @@ header {
 .logo-wrap img {
   width: 150px;
   display: block;
-  margin: 0 auto -12px auto;
+  margin: 0 auto -14px auto;
   filter: contrast(1.25);
 }
 
@@ -48,10 +48,10 @@ header {
 
 .site-title {
   font-family: "Playfair Display", serif;
-  font-size: 25px;
+  font-size: 28px;
   margin: 0.15rem 0 0.3rem 0;
-  letter-spacing: 0.12em;
-  font-weight: 400;
+  letter-spacing: 0.10em;
+  font-weight: 600;
 }
 
 
