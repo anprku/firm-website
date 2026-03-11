@@ -75,7 +75,7 @@ header {
   width: 48px;
   height: 1px;
   background: #C6A15B;
-  margin: 0.3rem auto 0.6rem auto;
+  margin: 0.15rem auto 0.25rem auto;
 }
 
     /* ── MAIN ── */
@@ -84,7 +84,7 @@ header {
     /* ── SHARED SECTION BLOCK ── */
     .section-block {
       max-width: 850px;
-      margin: 1 auto 1rem;
+      margin: 0 auto 0.5rem;
       text-align: center;
     }
 
@@ -139,7 +139,7 @@ header {
       text-decoration: none;
       cursor: pointer;
       background: transparent;
-      margin-top: 0.5rem;
+      margin-top: 0.15rem;
       transition: border-color 0.25s, color 0.25s, background 0.25s;
     }
     .btn-browse:hover {
