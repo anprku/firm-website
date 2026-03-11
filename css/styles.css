@@ -247,3 +247,11 @@
       .article-title { font-size: 1.4rem; }
     }
   </style>
+.logo-wrap img {
+  display: block !important;
+  width: 120px !important;
+  max-width: 120px !important;
+  height: auto !important;
+  margin: 0 auto !important;
+  filter: brightness(0.6) contrast(1.05) !important;
+}
