@@ -39,26 +39,28 @@
     /* ── HEADER ── */
       header {
         text-align: center;
-        padding: 0.4rem 1rem 0.2rem;
+        padding: 0.2rem 1rem 0.1rem;
         border-bottom: 1px solid #e4e0d8;
       }
     main {
-     padding-top: 0.2rem;
+     padding-top: 0.1rem;
      }
     .logo-wrap {
       display: inline-flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.25rem;
-      
+      gap: 0.05rem;
+      margin-bottom: 0;
+}
      /* controls logo size and darkness */
     .logo-wrap img {
       width: 150px;
       height: auto;
-      filter: brightness(0.5) contrast(1.1);
+      filter: brightness(0.5) contrast(1.5);
     }
     .site-title {
-        margin-top: 0.1rem;
+        margin-top: 0rem;
+      margin-bottom: 0.15rem;
       }
       cursor: pointer;
       text-decoration: none;
@@ -250,9 +252,9 @@
   </style>
 .logo-wrap img {
   display: block !important;
-  width: 120px !important;
+  width: 150px !important;
   max-width: 120px !important;
   height: auto !important;
   margin: 0 auto !important;
-  filter: brightness(0.55) contrast(1.1) !important;
+  filter: brightness(0.55) contrast(1.9) !important;
 }
