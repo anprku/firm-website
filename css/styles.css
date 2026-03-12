@@ -37,7 +37,7 @@ header {
 /* logo */
 
 .logo-wrap img {
-  width: 120px;
+  width: 100px;
   display: block;
   margin: 0 auto -14px auto;
   filter: contrast(1.25);
@@ -51,7 +51,7 @@ header {
   font-size: 22px;
   margin: 0.15rem 0 0.3rem 0;
   letter-spacing: 0.10em;
-  font-weight: 800;
+  font-weight: 850;
 }
 
 
