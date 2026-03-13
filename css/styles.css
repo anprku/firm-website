@@ -16,7 +16,7 @@ body {
 /* reading column */
 
 main {
-  max-width: 790px;
+  max-width: 750px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -134,7 +134,7 @@ header {
 /* divider between sections */
 
 .section-sep {
-  max-width: 790px;
+  max-width: 750px;
   margin: 1rem auto;
   border: none;
   border-top: 1px solid #ddd8ce;
@@ -295,7 +295,7 @@ footer {
 /* Article body container */
 
 .article-body {
-  max-width: 790px;
+  max-width: 750px;
   margin: 0 auto;
   padding: 0 20px;
   font-family: "EB Garamond", serif;
