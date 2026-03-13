@@ -326,16 +326,14 @@ footer {
 
 /* grain texture */
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-
+body {
+  margin: 0;
+  padding: 0;
   background-image: url("../assets/paper-grain.png");
-  background-size: 1200px;
+  background-size: 1400px;
   background-repeat: repeat;
 
-  opacity: 0.8;
-  z-index: -1;
+  color: #2b2b2b;
+  font-family: "EB Garamond", serif;
+  line-height: 1.5;
 }
