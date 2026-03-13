@@ -336,6 +336,6 @@ body::before {
   background-size: 1200px;
   background-repeat: repeat;
 
-  opacity: 0.08;
+  opacity: 0.8;
   z-index: -1;
 }
