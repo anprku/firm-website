@@ -8,21 +8,32 @@
 body {
   margin: 0;
   padding: 0;
-  background: #efe6d3;
+  background: #f4ecdb;
   color: #2a2621;
-  font-family: "EB Garamond", serif;
-  line-height: 1.6;
-}
-/* subtle paper grain */
-  background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
-  background-size: 3px 3px;
 
-/* reading column */
+  font-family: "EB Garamond", serif;
+  line-height: 1.65;
+  font-size: 18px;
+}
+
+/* subtle archival paper grain */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("paper-grain.png");
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+
+/* ---------- Reading Column ---------- */
 
 main {
-  max-width: 820px;
+  max-width: 780px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 22px;
 }
 
 
@@ -30,58 +41,55 @@ main {
 
 header {
   text-align: center;
-  padding-top: 1rem;
-  padding-bottom: 0.4rem;
-  border-bottom: 1px solid #ded8cc;
+  padding-top: 1.2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid #e2dbc9;
 }
 
 
-/* logo */
+/* ---------- Logo ---------- */
 
 .logo-wrap img {
-  width: 100px;
+  width: 92px;
   display: block;
-  margin: 0 auto -14px auto;
-  filter: contrast(1.25);
+  margin: 0 auto -10px auto;
+  filter: contrast(1.2);
 }
 
 
-/* site title (APK Law) */
+/* ---------- Site Title ---------- */
 
 .site-title {
   font-family: "Playfair Display", serif;
   font-size: 22px;
-  letter-spacing: 0.14em;
-  font-weight: 950;
-  margin: 0.15rem 0 0.3rem 0;
-  letter-spacing: 0.10em;
-  text-align: center;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+
+  margin: 0.2rem 0 0.35rem 0;
+
   position: relative;
   display: inline-block;
   padding: 0 22px;
 }
 
-/* left fading gold line */
+/* gold fade lines */
 
-.site-title::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 55%;
-  width: 22px;
-  height: 1px;
-  background: linear-gradient(to right, transparent, #b89a63);
-}
-
-/* right fading gold line */
-
+.site-title::before,
 .site-title::after {
   content: "";
   position: absolute;
-  right: 0;
   top: 55%;
-  width: 22px;
+  width: 24px;
   height: 1px;
+}
+
+.site-title::before {
+  left: 0;
+  background: linear-gradient(to right, transparent, #b89a63);
+}
+
+.site-title::after {
+  right: 0;
   background: linear-gradient(to left, transparent, #b89a63);
 }
 
