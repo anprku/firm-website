@@ -319,3 +319,49 @@ footer {
   font-size: 0.95rem;
   color: #555;
 }
+/* ---------- Name Header ---------- */
+
+.site-title {
+  text-align: center;
+  margin-top: 0.4rem;
+}
+
+.site-title .name {
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  letter-spacing: 0.08em;
+  font-weight: 850;
+}
+
+.site-title .designation {
+  font-family: "EB Garamond", serif;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  color: #555;
+  margin-top: 4px;
+  position: relative;
+  display: inline-block;
+  padding: 0 14px;
+}
+
+/* gold lines beside "Advocate" */
+
+.site-title .designation::before,
+.site-title .designation::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 32px;
+  height: 1px;
+  background: #c8a46b;
+}
+
+.site-title .designation::before {
+  right: 100%;
+  margin-right: 8px;
+}
+
+.site-title .designation::after {
+  left: 100%;
+  margin-left: 8px;
+}
