@@ -49,11 +49,39 @@ header {
 .site-title {
   font-family: "Playfair Display", serif;
   font-size: 22px;
+  letter-spacing: 0.14em;
+  font-weight: 850;
   margin: 0.15rem 0 0.3rem 0;
   letter-spacing: 0.10em;
-  font-weight: 850;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  padding: 0 22px;
 }
 
+/* left fading gold line */
+
+.site-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 55%;
+  width: 22px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #c8a46b);
+}
+
+/* right fading gold line */
+
+.site-title::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 55%;
+  width: 22px;
+  height: 1px;
+  background: linear-gradient(to left, transparent, #c8a46b);
+}
 
 /* ---------- Sections ---------- */
 
