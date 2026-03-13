@@ -323,3 +323,16 @@ footer {
   font-size: 0.95rem;
   color: #555;
 }
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  background-image: url("../assets/paper-grain.png");
+  background-size: 1200px;
+  background-repeat: repeat;
+
+  opacity: 0.08;
+}
