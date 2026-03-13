@@ -10,7 +10,7 @@ body {
   background: #f4f2ec;
   color: #2b2b2b;
   font-family: "EB Garamond", serif;
-  line-height: 1.35;
+  line-height: 1.46;
 }
 
 /* reading column */
@@ -327,7 +327,7 @@ footer {
 /* Paragraph formatting */
 
 .article-body p {
-  margin-bottom: 1rem;
+  margin-bottom: 0.7rem;
   text-align: justify;
 }
 
