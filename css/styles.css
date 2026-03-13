@@ -8,8 +8,8 @@
 body {
   margin: 0;
   padding: 0;
-  background: #ece1cc;
-  color: #2b2b2b;
+  background: #efe6d3;
+  color: #2a2621;
   font-family: "EB Garamond", serif;
   line-height: 1.6;
   background-image: radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
@@ -70,7 +70,7 @@ header {
   top: 55%;
   width: 22px;
   height: 1px;
-  background: linear-gradient(to right, transparent, #c8a46b);
+  background: linear-gradient(to right, transparent, #b89a63);
 }
 
 /* right fading gold line */
@@ -82,7 +82,7 @@ header {
   top: 55%;
   width: 22px;
   height: 1px;
-  background: linear-gradient(to left, transparent, #c8a46b);
+  background: linear-gradient(to left, transparent, #b89a63);
 }
 
 /* ---------- Sections ---------- */
@@ -115,7 +115,7 @@ header {
   background: linear-gradient(
     to right,
     transparent,
-    #c8a46b,
+    #b89a63,
     transparent
   );
   margin: 0.35rem auto 0.6rem auto;
@@ -136,7 +136,7 @@ header {
 .section-block a {
   color: #2b2b2b;
   text-decoration: none;
-  border-bottom: 1px solid #c8a46b;
+  border-bottom: 1px solid #b89a63;
 }
 
 .section-block a:hover {
@@ -162,7 +162,7 @@ header {
   margin: 0.8rem auto;
   padding: 10px 24px;
 
-  border: 1px solid #c8a46b;
+  border: 1px solid #b89a63;
   background: transparent;
 
   font-family: "EB Garamond", serif;
@@ -213,7 +213,7 @@ footer {
 }
 
 .back-link:hover {
-  color: #c8a46b;
+  color: #b89a63;
 }
 
 
@@ -237,7 +237,7 @@ footer {
   background: linear-gradient(
     to right,
     transparent,
-    #c8a46b,
+    #b89a63,
     transparent
   );
   margin: 0.35rem auto 0.7rem auto;
@@ -281,7 +281,7 @@ footer {
 }
 
 .archive-list a:hover {
-  color: #c8a46b;
+  color: #b89a63;
 }
 
 
