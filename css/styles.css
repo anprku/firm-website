@@ -1,7 +1,6 @@
 /* ============================== */
-/* APK LAW – COMPLETE STYLESHEET */
+/* APK LAW – COMPLETE STYLE SHEET */
 /* ============================== */
-
 
 /* ---------- Base ---------- */
 
@@ -11,9 +10,8 @@ body {
   background: #f4f2ec;
   color: #2b2b2b;
   font-family: "EB Garamond", serif;
-  line-height: 1.6;
+  line-height: 1.35;
 }
-
 
 /* reading column */
 
@@ -22,7 +20,6 @@ main {
   margin: 0 auto;
   padding: 0 20px;
 }
-
 
 /* ---------- Header ---------- */
 
@@ -33,7 +30,6 @@ header {
   border-bottom: 1px solid #ded8cc;
 }
 
-
 /* logo */
 
 .logo-wrap img {
@@ -43,16 +39,14 @@ header {
   filter: contrast(1.25);
 }
 
-
 /* site title (APK Law) */
 
 .site-title {
   font-family: "Playfair Display", serif;
   font-size: 22px;
-  letter-spacing: 0.14em;
   font-weight: 950;
-  margin: 0.15rem 0 0.3rem 0;
   letter-spacing: 0.10em;
+  margin: 0.4rem 0 0.3rem 0;
   text-align: center;
   position: relative;
   display: inline-block;
@@ -90,7 +84,6 @@ header {
   margin-bottom: 1.3rem;
 }
 
-
 /* section headings */
 
 .section-block h2 {
@@ -101,7 +94,6 @@ header {
   letter-spacing: 0.02em;
   margin-bottom: 0.2rem;
 }
-
 
 /* elegant gold divider under headings */
 
@@ -119,15 +111,13 @@ header {
   margin: 0.35rem auto 0.6rem auto;
 }
 
-
 /* paragraphs */
 
 .section-block p {
-  margin-top: 0.45rem;
-  margin-bottom: 0.9rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.6rem;
   text-align: justify;
 }
-
 
 /* email styling – black text with gold underline */
 
@@ -141,7 +131,6 @@ header {
   border-bottom: 1px solid #9e7c48;
 }
 
-
 /* divider between sections */
 
 .section-sep {
@@ -150,7 +139,6 @@ header {
   border: none;
   border-top: 1px solid #ddd8ce;
 }
-
 
 /* ---------- Browse Button ---------- */
 
@@ -182,10 +170,8 @@ header {
   position: absolute;
   left: 50%;
   bottom: 6px;
-
   width: 0;
   height: 1px;
-
   background: #b89a63;
   transition: width 0.35s ease, left 0.35s ease;
 }
@@ -196,7 +182,6 @@ header {
   width: 70%;
   left: 15%;
 }
-
 
 /* ---------- Footer ---------- */
 
@@ -209,11 +194,9 @@ footer {
   color: #666;
 }
 
-
 /* ================================================= */
 /* ---------- ARTICLE ARCHIVE (INDEX PAGE) ---------- */
 /* ================================================= */
-
 
 /* back link */
 
@@ -235,7 +218,6 @@ footer {
   color: #c8a46b;
 }
 
-
 /* archive heading */
 
 .section-heading {
@@ -244,7 +226,6 @@ footer {
   text-align: center;
   margin-bottom: 0.25rem;
 }
-
 
 /* elegant divider under archive heading */
 
@@ -262,14 +243,12 @@ footer {
   margin: 0.35rem auto 0.7rem auto;
 }
 
-
 /* archive container */
 
 .archive-list {
   max-width: 700px;
   margin: 2rem auto 0 auto;
 }
-
 
 /* article rows */
 
@@ -284,7 +263,6 @@ footer {
   border-bottom: 1px solid #ddd8ce;
 }
 
-
 /* row layout */
 
 .archive-list a {
@@ -292,10 +270,8 @@ footer {
   justify-content: space-between;
   align-items: baseline;
   padding: 1rem 0;
-
   text-decoration: none;
   color: #2b2b2b;
-
   font-family: "EB Garamond", serif;
 }
 
@@ -303,14 +279,12 @@ footer {
   color: #c8a46b;
 }
 
-
 /* article title */
 
 .art-title {
   font-size: 18px;
   line-height: 1.4;
 }
-
 
 /* publication year */
 
@@ -333,7 +307,6 @@ footer {
   word-wrap: break-word;
 }
 
-
 /* Article body container */
 
 .article-body {
@@ -343,15 +316,13 @@ footer {
   font-family: "EB Garamond", serif;
 }
 
-
 /* Article headings inside body */
 
 .article-body h1 {
   font-family: "Playfair Display", serif;
   font-size: 30px;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.75rem;
 }
-
 
 /* Paragraph formatting */
 
@@ -360,17 +331,10 @@ footer {
   text-align: justify;
 }
 
-
 /* Disclaimer */
 
 .article-disclaimer {
   margin-top: 2rem;
   font-size: 0.95rem;
   color: #555;
-}
-/* ---------- Name Header ---------- */
-
-.site-title {
-  text-align: center;
-  margin-top: 0.4rem;
 }
