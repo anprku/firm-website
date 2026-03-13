@@ -12,10 +12,10 @@ body {
   color: #2a2621;
   font-family: "EB Garamond", serif;
   line-height: 1.6;
-  background-image:#efe6d3
-  background-size: 3px 3px;
 }
-
+/* subtle paper grain */
+  background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 3px 3px;
 
 /* reading column */
 
