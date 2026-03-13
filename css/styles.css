@@ -8,12 +8,12 @@
 body {
   margin: 0;
   padding: 0;
-  background: #f3ede0;
+  background: #ece1cc;
   color: #2b2b2b;
   font-family: "EB Garamond", serif;
   line-height: 1.6;
-  background-image: radial-gradient(rgba(0,0,0,0.015) 1px, transparent 1px);
-  background-size: 4px 4px;
+  background-image: radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+  background-size: 3px 3px;
 }
 
 
