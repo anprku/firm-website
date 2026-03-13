@@ -36,7 +36,7 @@ header {
   width: 100px;
   display: block;
   margin: 0 auto -14px auto;
-  filter: contrast(1.25);
+  filter: contrast(1);
 }
 
 /* site title (APK Law) */
