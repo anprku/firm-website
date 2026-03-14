@@ -295,6 +295,18 @@ footer {
   font-family: "EB Garamond", serif;
 }
 
+.gold-rule {
+  width: 36px;
+  height: 1px;
+  margin: 14px auto 22px auto;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #c8a46b,
+    transparent
+  );
+}
+
 /* Article body container */
 
 .article-body {
