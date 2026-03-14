@@ -2,6 +2,10 @@
 /* APK LAW – COMPLETE STYLE SHEET */
 /* ============================== */
 
+:root {
+  color-scheme: light;
+}
+
 /* ---------- Base ---------- */
 
 body {
