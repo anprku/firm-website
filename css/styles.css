@@ -201,7 +201,7 @@ footer {
   margin-bottom: 0.4rem;
 
   font-family: "EB Garamond", serif;
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 1px;
 
   color: #777;
@@ -263,7 +263,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  padding: 0.9rem 0;
+  padding: 0.75rem 0;
   text-decoration: none;
   color: #2b2b2b;
   font-family: "EB Garamond", serif;
@@ -298,7 +298,7 @@ footer {
   margin: 40px auto 10px auto;
   text-align: center;
   font-family: "Playfair Display", serif;
-  font-size: 30px;
+  font-size: 29px;
   line-height: 1.3;
 }
 
@@ -309,15 +309,15 @@ footer {
   margin: 60px auto;
   padding: 0 20px;
   font-family: "EB Garamond", serif;
-  font-size: 19px;
-  line-height: 1.6;
+  font-size: 17px;
+  line-height: 1.5;
 }
 
 /* Article headings inside body */
 
 .article-body h2 {
   font-family: "Playfair Display", serif;
-  font-size: 23px;
+  font-size: 22px;
   margin-top: 40px;
   margin-bottom: 14px;
 }
