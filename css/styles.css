@@ -291,8 +291,22 @@ footer {
   text-align: center;
   font-size: 15px;
   color: #777;
-  margin-bottom: 20px;
-  font-family: "EB Garamond", serif;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.article-date::after {
+  content: "";
+  display: block;
+  width: 34px;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #c8a46b,
+    transparent
+  );
+  margin: 10px auto 18px auto;
 }
 
 /* Article body container */
