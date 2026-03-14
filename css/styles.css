@@ -291,22 +291,16 @@ footer {
   text-align: center;
   font-size: 15px;
   color: #777;
-  margin-bottom: 10px;
-  position: relative;
+  margin: 0 auto 22px auto;
 }
 
 .article-date::after {
   content: "";
   display: block;
-  width: 34px;
+  width: 100%;
   height: 1px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    #c8a46b,
-    transparent
-  );
-  margin: 10px auto 18px auto;
+  background: #ddd8ce;
+  margin: 14px auto 0 auto;
 }
 
 /* Article body container */
