@@ -193,6 +193,7 @@ footer {
 .section-heading {
   font-family: "Playfair Display", serif;
   font-size: 1.25rem;
+  font-weight: 400;
   text-align: center;
   margin-bottom: 0.25rem;
 }
