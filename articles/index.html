@@ -16,10 +16,68 @@
 
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/android-chrome-192x192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/assets/android-chrome-512x512.png">
-  
+
 <link rel="stylesheet" href="/css/styles.css">
 
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.6rem;
+    justify-content: center;
+    margin: 0 0 2rem 0;
+    font-family: 'EB Garamond', serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .filter-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: #7a6a55;
+    font-family: inherit;
+    font-size: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    opacity: 0.55;
+    transition: opacity 0.2s ease, color 0.2s ease;
+  }
+
+  .filter-bar button:hover {
+    opacity: 1;
+    color: #b8960c;
+  }
+
+  .filter-bar button.active {
+    opacity: 1;
+    color: #b8960c;
+    border-bottom: 1px solid #b8960c;
+  }
+
+  .filter-label {
+    color: #7a6a55;
+    opacity: 0.55;
+    font-family: 'EB Garamond', serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .archive-list ul li {
+    transition: opacity 0.2s ease;
+  }
+
+  .archive-list ul li.hidden {
+    display: none;
+  }
+
+</style>
 
 </head>
 
@@ -39,65 +97,77 @@
 
 <div class="archive-list">
 
-<ul>
-  
-<li>
-<a href="dpdp-act-contractual-liability-fiduciaries-processors.html">
-<span class="art-title">DPDP Act: Contractual Liability between Fiduciaries and Processors</span>
-<span class="art-year">2026</span>
-</a>
-</li>
-  
-<li>
-<a href="material-adverse-change-indian-ma.html">
-<span class="art-title">Material Adverse Change Clauses in Indian M&A</span>
-<span class="art-year">2026</span>
-</a>
-</li>
+  <div class="filter-bar">
+    <span class="filter-label">Filter by</span>
+    <span class="filter-separator">·</span>
+    <button class="active" data-filter-subject="all">All</button>
+    <span class="filter-separator">·</span>
+    <button data-filter-subject="general-commercial">General Commercial</button>
+    <span class="filter-separator">·</span>
+    <button data-filter-subject="corporate-ma">Corporate/M&A</button>
+    <span class="filter-separator">·</span>
+    <button data-filter-subject="disputes">Disputes</button>
+  </div>
 
-<li>
-<a href="privity-contract-consideration-third-party-rights.html">
-<span class="art-title">Privity of Contract and Consideration: The Scope of Third-Party Rights</span>
-<span class="art-year">2026</span>
-</a>
-</li>
+  <ul>
 
-<li>
-<a href="arbitral-seat-venue-indian-arbitration-law.html">
-<span class="art-title">Arbitral Seat and Venue under the Indian Arbitration Law</span>
-<span class="art-year">2025</span>
-</a>
-</li>
+    <li data-subject="general-commercial" data-year="2026">
+      <a href="dpdp-act-contractual-liability-fiduciaries-processors.html">
+        <span class="art-title">DPDP Act: Contractual Liability between Fiduciaries and Processors</span>
+        <span class="art-year">2026</span>
+      </a>
+    </li>
 
-<li>
-<a href="exclusion-clauses-commercial-contracts-india.html">
-<span class="art-title">The Interpretation of Exclusion Clauses in Commercial Contracts</span>
-<span class="art-year">2025</span>
-</a>
-</li>
+    <li data-subject="corporate-ma" data-year="2026">
+      <a href="material-adverse-change-indian-ma.html">
+        <span class="art-title">Material Adverse Change Clauses in Indian M&A</span>
+        <span class="art-year">2026</span>
+      </a>
+    </li>
 
-<li>
-<a href="digital-contracts-bharatiya-sakshya-adhiniyam.html">
-<span class="art-title">The Enforceability of Digital Contracts</span>
-<span class="art-year">2025</span>
-</a>
-</li>
+    <li data-subject="general-commercial" data-year="2026">
+      <a href="privity-contract-consideration-third-party-rights.html">
+        <span class="art-title">Privity of Contract and Consideration: The Scope of Third-Party Rights</span>
+        <span class="art-year">2026</span>
+      </a>
+    </li>
 
-<li>
-<a href="independent-contractors-workmen-indian-law.html">
-<span class="art-title">Distinguishing Independent Contractors from Workmen under Indian Law</span>
-<span class="art-year">2025</span>
-</a>
-</li>
+    <li data-subject="disputes" data-year="2025">
+      <a href="arbitral-seat-venue-indian-arbitration-law.html">
+        <span class="art-title">Arbitral Seat and Venue under the Indian Arbitration Law</span>
+        <span class="art-year">2025</span>
+      </a>
+    </li>
 
-<li>
-<a href="impossibility-suspension-performance-indian-contract-act.html">
-<span class="art-title">Impossibility and Suspension of Performance under the Indian Contract Act</span>
-<span class="art-year">2024</span>
-</a>
-</li>
-  
-</ul>
+    <li data-subject="general-commercial" data-year="2025">
+      <a href="exclusion-clauses-commercial-contracts-india.html">
+        <span class="art-title">The Interpretation of Exclusion Clauses in Commercial Contracts</span>
+        <span class="art-year">2025</span>
+      </a>
+    </li>
+
+    <li data-subject="general-commercial" data-year="2025">
+      <a href="digital-contracts-bharatiya-sakshya-adhiniyam.html">
+        <span class="art-title">The Enforceability of Digital Contracts</span>
+        <span class="art-year">2025</span>
+      </a>
+    </li>
+
+    <li data-subject="general-commercial" data-year="2025">
+      <a href="independent-contractors-workmen-indian-law.html">
+        <span class="art-title">Distinguishing Independent Contractors from Workmen under Indian Law</span>
+        <span class="art-year">2025</span>
+      </a>
+    </li>
+
+    <li data-subject="general-commercial" data-year="2024">
+      <a href="impossibility-suspension-performance-indian-contract-act.html">
+        <span class="art-title">Impossibility and Suspension of Performance under the Indian Contract Act</span>
+        <span class="art-year">2024</span>
+      </a>
+    </li>
+
+  </ul>
 
 </div>
 
@@ -107,3 +177,29 @@
 <footer>
 Bengaluru, India | © APK 2026
 </footer>
+
+
+<script>
+
+  const buttons = document.querySelectorAll('.filter-bar button');
+  const items = document.querySelectorAll('.archive-list ul li');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filterSubject = button.getAttribute('data-filter-subject');
+
+      buttons.forEach(b => b.classList.remove('active'));
+      button.classList.add('active');
+
+      items.forEach(item => {
+        const match = filterSubject === 'all' || item.getAttribute('data-subject') === filterSubject;
+        item.classList.toggle('hidden', !match);
+      });
+    });
+  });
+
+</script>
+
+
+</body>
+</html>
