@@ -287,6 +287,14 @@ footer {
   line-height: 1.3;
 }
 
+.article-date {
+  text-align: center;
+  font-size: 15px;
+  color: #777;
+  margin-bottom: 20px;
+  font-family: "EB Garamond", serif;
+}
+
 /* Article body container */
 
 .article-body {
