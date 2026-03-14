@@ -6,7 +6,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DPDP Act: Contractual Liability between Fiduciaries and Processors - APK Law</title>
+<title>Data Processing Agreements under the Digital Personal Data Protection Act, 2023 - APK Law</title>
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data Processing Agreements under the Digital Personal Data Protection Act, 2023">
+<meta property="og:description" content="An examination of the contractual architecture of the Data Processing Agreement under the DPDP Act, 2023 and the Rules, 2025, covering scope of processing, security obligations, sub-processing controls, breach notification, retention and deletion, liability allocation, and audit rights.">
+<meta property="og:url" content="https://apklaw.in/articles/data-processing-agreements-dpdp-act-2023.html">
+<meta property="og:site_name" content="APK Law">
 
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
@@ -30,12 +37,10 @@
 <a class="back-link" href="/articles/">← Notes and Reflections</a>
 
 <h1 class="article-title">
-DPDP Act: Contractual Liability between Fiduciaries and Processors
+Data Processing Agreements under the Digital Personal Data Protection Act, 2023
 </h1>
 
-<div class="gold-rule"></div>
-
-<div class="article-meta">January 2026</div>
+<div class="article-date">2026</div>
 
 </header>
 
@@ -45,141 +50,153 @@ DPDP Act: Contractual Liability between Fiduciaries and Processors
 <h2>I. Introduction</h2>
 
 <p>
-The Digital Personal Data Protection Act, 2023, establishes a comprehensive framework for data protection in India. Central to this framework is the distinction between Data Fiduciaries and Data Processors. A Data Fiduciary determines the purpose and means of processing personal data. A Data Processor processes personal data on behalf of a Data Fiduciary. This distinction, while apparently straightforward, has significant implications for contractual drafting and risk allocation.
+The Digital Personal Data Protection Act, 2023 ("Act") and the Digital Personal Data Protection Rules, 2025 notified on November 13, 2025 ("Rules") create a statutory framework within which organisations that process personal data must operate. At the centre of this framework, from a contractual standpoint, is the relationship between the Data Fiduciary and the Data Processor. The Data Fiduciary determines the purpose and means of processing personal data. The Data Processor processes that data on the Fiduciary's behalf, acting only on the Fiduciary's instructions and within the limits of a contract between them.
 </p>
 
 <p>
-Unlike the European Union's General Data Protection Regulation, which imposes direct statutory obligations on both controllers and processors, the DPDP Act adopts a fiduciary-centric model. The Data Fiduciary bears primary responsibility for compliance with the law's requirements and remains liable for the acts and omissions of the Data Processors it appoints. This legislative choice places considerable weight on the contractual arrangements between fiduciaries and processors. The Data Processing Agreement becomes not merely a commercial document but a critical instrument for risk management and regulatory compliance.
+The Act adopts a fiduciary-centric model of accountability. Direct statutory obligations, and the regulatory penalties that attach to their breach, fall primarily on the Data Fiduciary rather than on the Processor. Where a Processor's act or omission causes a breach or a failure of compliance, the regulatory consequence is borne by the Fiduciary. The Processor's obligations are creatures of contract, not of statute, and the instrument through which those obligations are created, defined, and enforced is the Data Processing Agreement ("DPA").
 </p>
 
 <p>
-The DPDP Rules, 2025, notified on November 13, 2025, provide detailed specifications for these contractual arrangements. With a staggered implementation period of up to eighteen months, organisations have until May 2027 to achieve full compliance. This article examines the mandatory contractual clauses required under the DPDP Rules, 2025, focusing particularly on breach notification timelines and liability allocation for third-party vendors. It analyses the statutory framework governing fiduciary-processor relationships, considers the practical challenges of implementing effective DPAs, and evaluates the extent to which contractual provisions can shield fiduciaries from liability arising from processor negligence.
+The DPA is therefore not a compliance formality to be appended to a vendor engagement. It is the primary mechanism through which the Fiduciary manages its regulatory exposure to the conduct of third parties over whom it has delegated operational control. Its commercial terms, particularly on scope of processing, security obligations, sub-processing controls, breach notification, and liability allocation, are the product of negotiation between parties with divergent interests, and the outcomes of that negotiation carry direct regulatory consequences for the Fiduciary. This article examines the contractual architecture of the DPA under the DPDP framework, the key terms that require careful drafting, and the negotiation tensions that arise in practice.
 </p>
 
 
-<h2>II. The Statutory Framework</h2>
+<h2>II. The DPA as a Risk Management Instrument</h2>
 
 <p>
-The DPDP Act, 2023, establishes the basic architecture of fiduciary-processor relationships through several key provisions. Section 8(2) provides that a Data Fiduciary may engage a Data Processor to process personal data on its behalf under a valid contract. Section 8(5) requires both fiduciaries and processors to implement reasonable security safeguards to prevent personal data breaches. Section 8(6) mandates that in the event of a personal data breach, the Data Fiduciary must notify the Data Protection Board of India and each affected Data Principal.
-</p>
-
-<p>
-The Act does not impose direct statutory obligations on Data Processors. Instead, processors are bound primarily through their contracts with fiduciaries. This approach reflects a policy choice to centralise accountability with the entity that determines the purposes and means of processing. However, the practical effect is that fiduciaries must exercise careful oversight over their processors, as regulatory penalties for non-compliance may be imposed on the fiduciary even where the breach originates with the processor.
+The function of the DPA under the DPDP framework is to convert the Fiduciary's statutory obligations into enforceable contractual obligations on the Processor, and to create a contractual basis for the Fiduciary to recover losses arising from the Processor's failures. Both objectives are distinct and each requires attention in drafting.
 </p>
 
 <p>
-The DPDP Rules, 2025, provide further specificity. Rule 6 defines "reasonable security safeguards" and details mandatory measures that must be implemented. These include technical measures such as encryption at rest and in transit, access controls, network segmentation, and logging of data access and processing activities. Organisational measures include staff training, background checks, and incident response protocols. Rule 8 imposes additional data retention obligations, requiring fiduciaries to retain logs of data processing activities for at least one year and to provide forty-eight hours notice before deletion of personal data.
+The first objective, flowing down statutory obligations, requires that the DPA impose on the Processor the substantive conduct obligations that the Act and Rules place on the Fiduciary. Security safeguards, breach notification, data retention and deletion, and sub-processing controls are obligations the Fiduciary owes to the regulatory authority and to data principals. Where the fulfilment of these obligations depends on the Processor's conduct, the DPA must create a parallel contractual obligation on the Processor to conduct itself in the manner that enables the Fiduciary to comply. The contractual obligation need not mirror the statutory language precisely, but it must be sufficient in scope to ensure that the Processor's conduct does not place the Fiduciary in breach of its regulatory obligations.
 </p>
 
 <p>
-The Rules were notified on November 13, 2025, with phased implementation over eighteen months. Organisations are required to achieve full compliance by May 2027. The Data Protection Board of India has been established immediately with four members to oversee implementation and enforcement.
-</p>
-
-
-<h2>III. Essential Elements of a Data Processing Agreement</h2>
-
-<p>
-A Data Processing Agreement under the DPDP Act serves multiple functions. It documents the fiduciary's instructions to the processor, defines the scope and limitations of processing, establishes security and sub-processing controls, and creates audit, cooperation, and deletion obligations. The DPA is the primary mechanism through which the fiduciary's statutory obligations are flowed down to the processor.
+The second objective, creating recovery rights, addresses the commercial consequence of the fiduciary-centric model. If the Processor causes a personal data breach that results in a penalty being imposed on the Fiduciary, the Act does not itself give the Fiduciary a statutory right of indemnity or contribution against the Processor. That right must be created by contract. An indemnity clause in the DPA, drafted with sufficient breadth to cover regulatory penalties and not merely direct losses, is the primary instrument through which the Fiduciary protects itself against the financial consequences of the Processor's failures. The absence of such a clause, or its limitation to a cap that is disproportionate to the regulatory exposure, leaves the Fiduciary bearing losses that were commercially caused by the Processor.
 </p>
 
 <p>
-Several elements are essential to an effective DPA. First, the agreement must clearly define the scope of processing, including the purposes for which data may be processed, the categories of personal data involved, the categories of data principals, and the duration of processing. This purpose limitation is critical because processing beyond the scope of the fiduciary's instructions may render the processor's actions unlawful and expose both parties to liability.
+The tension between these two objectives and the Processor's commercial interest in limiting its exposure defines the negotiation dynamic of most DPA engagements. Processors, particularly large technology vendors operating at scale with standardised agreements, resist bespoke obligation regimes and seek to cap their liability at amounts that bear no relationship to the regulatory penalties a Fiduciary may face. Fiduciaries with significant bargaining power can negotiate departures from standard forms; those without it must assess whether the Processor's standard terms provide adequate contractual cover and, if not, whether alternative structural arrangements reduce the regulatory risk.
+</p>
+
+
+<h2>III. Scope of Processing and Purpose Limitation</h2>
+
+<p>
+The foundational term of any DPA is the scope of processing clause. This clause defines the universe of personal data that the Processor is authorised to process, the purposes for which processing is permitted, and the categories of data principals whose data is involved. Processing by the Processor that falls outside this scope is unauthorised as a matter of contract, and a Fiduciary that has clearly defined the scope in the DPA is better placed to establish that a deviation was the Processor's independent act rather than a consequence of the Fiduciary's instruction.
 </p>
 
 <p>
-Second, the DPA must specify security obligations in accordance with Rule 6 of the DPDP Rules. Processors must implement technical and organisational measures commensurate with the risks associated with processing. These measures must include encryption, access controls, logging, and regular testing of security systems. The DPA should require the processor to maintain confidentiality obligations for its personnel and to ensure that any person authorised to process personal data has committed themselves to confidentiality.
+From a drafting standpoint, the scope clause requires a balance between specificity and operational flexibility. A scope clause that is excessively narrow may prevent the Processor from performing necessary incidental processing activities, such as aggregating data for performance monitoring or retaining limited logs for security purposes, without requiring a contractual amendment. A clause that is excessively broad, by contrast, permits the Processor to process data in ways that the Fiduciary did not intend and may not have the consent of data principals to authorise. The appropriate level of specificity depends on the nature of the engagement; a Processor providing payroll processing services requires a different scope definition from one providing cloud infrastructure, and the DPA should be drafted to reflect the actual processing activities rather than relying on generic templates.
 </p>
 
 <p>
-Third, the DPA must address sub-processing. Processors frequently engage third-party sub-processors for activities such as cloud hosting, analytics, or customer support. The fiduciary remains responsible for all processing carried out on its behalf, including by sub-processors. Accordingly, the DPA should require the processor to obtain the fiduciary's prior written consent before engaging any sub-processor, and to impose equivalent obligations on such sub-processors by way of a further contract. The processor should remain fully liable to the fiduciary for the acts and omissions of its sub-processors.
+The DPA should also address the prohibition on the Processor processing personal data for its own purposes. This is particularly significant in engagements with large technology vendors who may seek to use the data they process on behalf of the Fiduciary for their own product development, analytics, or commercial purposes. The DPA must unambiguously prohibit such secondary use and should specify the consequences of any breach of this prohibition, including the Fiduciary's right to terminate the engagement and seek compensation for any losses arising from the unauthorised use.
+</p>
+
+
+<h2>IV. Security Obligations and Sub-Processing Controls</h2>
+
+<p>
+Rule 6 of the Rules requires Data Fiduciaries to implement <em>"reasonable security safeguards,"</em> and the DPA must impose an equivalent obligation on the Processor in respect of the personal data it handles. The contractual security obligation should not merely replicate the regulatory language of "reasonable security safeguards" without further specification, because reasonableness is a standard that will be assessed after the fact, often in the context of a breach that has already occurred. A DPA that specifies the security measures the Processor is required to maintain provides greater contractual certainty and a clearer basis for establishing whether a breach resulted from the Processor's failure to fulfil its obligations.
 </p>
 
 <p>
-Fourth, the DPA must include audit rights. The fiduciary must have the ability to verify the processor's compliance with its obligations. This may include rights to conduct on-site inspections, to review audit reports prepared by independent third parties, and to obtain all information necessary to demonstrate compliance. The frequency and scope of audits should be proportionate to the risks associated with the processing.
+The security measures that the DPA should address include, at minimum, encryption of personal data both at rest and in transit, access controls restricting processing to authorised personnel, network segmentation preventing unauthorised access to data storage systems, and logging of data access and processing activities sufficient to enable forensic investigation of any incident. Beyond these technical measures, the DPA should require organisational safeguards, including confidentiality obligations for personnel with access to personal data, training requirements, and the maintenance of an incident response plan that enables the Processor to detect, contain, and report a breach within the timeframes required by the Fiduciary's notification obligations.
 </p>
 
 <p>
-Fifth, the DPA must address data retention and deletion in accordance with Rule 8. Upon termination of the processing relationship, the processor must, at the fiduciary's choice, return or delete all personal data, unless retention is required by law. The processor must retain logs of processing activities for at least one year and must provide forty-eight hours notice before deletion of any personal data. A certification of deletion should be provided to the fiduciary.
-</p>
-
-
-<h2>IV. Breach Notification</h2>
-
-<p>
-One of the most operationally significant provisions of the DPDP Rules is the requirement for prompt breach notification. Section 8(6) of the Act requires fiduciaries to notify the Data Protection Board and affected data principals of any personal data breach. Rule 7 specifies that such notification must be made within seventy-two hours of the fiduciary becoming aware of the breach.
+Sub-processing is a separate and commercially significant area of negotiation. Where a Processor engages sub-processors, which is almost universal in technology engagements involving cloud infrastructure, analytics platforms, or third-party support services, the Fiduciary's data may be processed by entities with whom the Fiduciary has no direct contractual relationship. The Fiduciary nonetheless remains responsible for that processing. The DPA must address sub-processing through two mechanisms. First, the Processor should be required to obtain the Fiduciary's prior written consent before engaging any sub-processor, either on an individual basis or by reference to an approved list that is subject to the Fiduciary's approval and updated only with notice and consent. Second, the Processor should be required to impose equivalent obligations on its sub-processors by contract, including the same security standards, breach notification requirements, and audit rights that bind the Processor itself, and should remain fully liable to the Fiduciary for any act or omission of a sub-processor as though it were the Processor's own act or omission.
 </p>
 
 <p>
-This timeline creates particular challenges where processing is carried out by a third-party processor. The processor may be the first to detect a breach, and the fiduciary's ability to comply with the seventy-two hour notification requirement depends entirely on the processor's prompt reporting. Accordingly, the DPA must impose clear and enforceable obligations on the processor to notify the fiduciary immediately upon becoming aware of any breach.
+The sub-processing consent mechanism is a frequent point of commercial tension. Large Processors operating with standardised infrastructure arrangements resist the requirement for individual approval of each sub-processor and typically seek a general authorisation for sub-processing subject to notification, rather than prior consent. From the Fiduciary's perspective, a general authorisation without prior consent reduces its visibility into the data processing chain and may result in personal data being transferred to sub-processors in jurisdictions or of a character that the Fiduciary would not have approved had it been consulted. The appropriate commercial resolution depends on the nature of the engagement and the sensitivity of the data involved, but the Fiduciary should at minimum insist on a list of current sub-processors at the time of contracting, a mechanism for ongoing notification of changes, and a contractual right to object to the addition of new sub-processors whose engagement would create regulatory or reputational risk.
+</p>
+
+
+<h2>V. Breach Notification Obligations in the DPA</h2>
+
+<p>
+Section 8(6) of the Act requires the Data Fiduciary to notify the Data Protection Board of India and each affected data principal of any personal data breach. Rule 7 of the Rules specifies that this notification must be made within seventy-two hours of the Fiduciary becoming aware of the breach. This timeline is operationally demanding even where the Fiduciary manages its own data processing infrastructure. Where processing is carried out by a third-party Processor, the Fiduciary's ability to comply depends entirely on the Processor detecting the breach promptly and notifying the Fiduciary with sufficient speed for the seventy-two hour period to be meaningful.
 </p>
 
 <p>
-The notification obligation should not be limited to confirmed breaches. Many incidents require investigation to determine whether a breach has in fact occurred. The DPA should require the processor to notify the fiduciary of any security incident that could reasonably result in a personal data breach, even where confirmation is pending. This allows the fiduciary to assess the incident and prepare any required notifications while the processor conducts its investigation.
+The DPA must therefore impose a notification obligation on the Processor that is more stringent than the statutory obligation imposed on the Fiduciary. The Processor should be required to notify the Fiduciary immediately upon becoming aware of any security incident that has resulted in, or could reasonably be expected to result in, unauthorised access to, disclosure of, or destruction of personal data. The notification obligation should not be conditioned on confirmation that a breach has occurred, because the time required for investigation may itself consume a significant portion of the seventy-two hour window. An obligation to notify upon awareness of a potential incident, coupled with an obligation to provide updates as the investigation progresses, enables the Fiduciary to assess its notification obligations while the Processor investigates.
 </p>
 
 <p>
-The DPA should also specify the information that the processor must provide in its notification. This should include, at a minimum, a description of the nature of the breach, the categories and approximate number of data principals affected, the likely consequences of the breach, and the measures taken or proposed to be taken to address the breach. The processor should be required to cooperate fully with the fiduciary's investigation and remediation efforts.
+The DPA should specify the content of the Processor's breach notification to the Fiduciary. This should include a description of the nature of the incident, the categories and approximate number of data principals whose data was affected, the likely consequences of the incident, the measures taken or proposed by the Processor to address the incident and prevent recurrence, and the identity of the Processor's incident response contact. The Processor should be required to cooperate fully with the Fiduciary's own investigation and with any investigation by the Data Protection Board, including by providing access to logs, systems, and personnel as reasonably required.
 </p>
 
 <p>
-Failure to include adequate breach notification provisions in the DPA exposes the fiduciary to significant risk. If the processor delays reporting a breach, the fiduciary may miss the seventy-two hour notification deadline and become subject to penalty. The regulator is unlikely to accept the processor's delay as an excuse, as the fiduciary retains primary responsibility for compliance.
+A Processor that delays notification to the Fiduciary and thereby causes the Fiduciary to miss the seventy-two hour deadline creates a direct regulatory liability for the Fiduciary. The DPA must make clear that any such delay constitutes a material breach of the agreement, entitles the Fiduciary to terminate, and exposes the Processor to indemnity liability for any penalty or loss arising from the failure to notify on time. The practical enforceability of this provision depends on whether the indemnity clause is broad enough to cover regulatory penalties, a point addressed in the section on liability allocation below.
 </p>
 
 
-<h2>V. Grievance Redressal</h2>
+<h2>VI. Data Retention, Deletion, and Return</h2>
 
 <p>
-Rule 14 of the DPDP Rules imposes significant obligations regarding grievance redressal. The Data Fiduciary must establish a mechanism for receiving and addressing complaints from data principals and must respond to any grievance within ninety days of its receipt. Contact details of the Data Protection Officer or other designated officer must be published.
-</p>
-
-<p>
-Where processing is carried out by a third-party processor, the fiduciary must ensure that the processor has adequate mechanisms to handle grievances that arise from its processing activities. The DPA should require the processor to forward any grievance received directly to the fiduciary promptly and to cooperate in the investigation and resolution of such grievances.
+The Rules impose obligations on Data Fiduciaries regarding the retention and deletion of personal data. Rule 8 requires Fiduciaries to retain logs of data processing activities for at least one year and to provide forty-eight hours notice before deletion of personal data. The DPA must reflect these obligations and impose corresponding requirements on the Processor in respect of the data it holds on the Fiduciary's behalf.
 </p>
 
 <p>
-The ninety-day timeline runs from the date the grievance is received by the fiduciary. If a grievance is first received by the processor, the fiduciary's timeline may be affected by delays in forwarding. The DPA should therefore require immediate forwarding of any grievance and should specify that the processor remains responsible for any failure to meet the timeline caused by its delay.
-</p>
-
-
-<h2>VI. Liability Allocation</h2>
-
-<p>
-The question of liability allocation between fiduciaries and processors is among the most contested in DPA negotiations. Processors seek to limit their exposure, while fiduciaries seek to ensure that they can recover losses arising from processor negligence.
+The most commercially significant aspect of the retention and deletion framework in a DPA is the obligation that applies upon termination of the engagement. When the processing relationship ends, whether by expiry of the contract, termination for cause, or the Fiduciary's decision to change service providers, the Processor holds personal data that no longer serves any legitimate purpose and must be either returned to the Fiduciary or securely deleted. The DPA should specify, with precision, the form in which data will be returned if the Fiduciary elects return, the format and timeline for certified deletion if deletion is elected, and the obligation of the Processor to provide a written certification confirming that all personal data, including any copies held by sub-processors, has been deleted. The certification requirement is important because it creates a contractual record that the Fiduciary can produce in the event of a subsequent dispute or regulatory inquiry.
 </p>
 
 <p>
-The DPDP Act does not address this question directly. As noted, the Act adopts a fiduciary-centric model, meaning that the regulator will look first to the fiduciary in the event of non-compliance. If a processor's act or omission causes a breach, the fiduciary may be required to pay a penalty, but the Act does not create a statutory right of contribution or indemnity against the processor. Such rights must be created by contract.
+A drafting difficulty arises in respect of data retained by the Processor for its own legitimate operational purposes, such as security logs, backup copies, and records required to be maintained under applicable law. The DPA should distinguish between personal data held as part of the processing service, which must be returned or deleted, and data retained by the Processor for its own purposes, which may be subject to different retention and deletion terms. Where the Processor retains personal data after termination for its own legitimate reasons, the DPA should specify the purpose, the retention period, and the obligation to delete once that purpose is fulfilled.
+</p>
+
+
+<h2>VII. Liability Allocation, Indemnity, and the Penalty Cap Problem</h2>
+
+<p>
+Liability allocation is the most commercially contested aspect of DPA negotiation, and it is the area in which the divergence between the Fiduciary's regulatory exposure and the Processor's commercial risk tolerance is most acute. Under the Act, penalties for non-compliance may be imposed on the Data Fiduciary at levels up to two hundred fifty crore rupees for a single breach. The Processor's standard liability cap in a commercial services agreement, typically set at a multiple of the annual fees paid under the contract, will almost invariably be a fraction of this figure. The gap between the Fiduciary's regulatory exposure and the Processor's contractual cap represents a residual risk that the Fiduciary bears by default.
 </p>
 
 <p>
-Indemnity clauses serve this function. A well-drafted indemnity clause requires the processor to compensate the fiduciary for losses arising from the processor's breach of the DPA or from its negligent acts or omissions. This may include not only direct losses but also any penalties imposed on the fiduciary by the Data Protection Board. Indemnity clauses should be carefully negotiated to ensure that they provide adequate protection without being so one-sided as to be commercially unacceptable.
+The indemnity clause in the DPA is the primary mechanism for shifting this residual risk back to the Processor where the breach originates in the Processor's acts or omissions. A well-drafted indemnity clause should cover, without limitation, any penalties imposed on the Fiduciary by the Data Protection Board that are directly attributable to the Processor's failure to comply with its obligations under the DPA, any costs of notification to data principals and to the Board arising from a breach caused by the Processor, any claims brought by data principals arising from the Processor's unauthorised or negligent processing of their data, and reasonable legal costs and expenses incurred by the Fiduciary in responding to the breach and any associated regulatory proceedings. The indemnity should be structured so that it is not subject to the general liability cap, or alternatively should be subject to a higher cap than that applicable to ordinary service failures.
 </p>
 
 <p>
-Processors typically seek to include limitation of liability clauses. These clauses cap the processor's liability at a specified amount, often linked to the fees paid under the DPA. From the fiduciary's perspective, such caps may be inadequate where a breach exposes the fiduciary to penalties of up to two hundred fifty crore rupees. The fiduciary must assess whether the processor's proposed cap is commensurate with the risks associated with the processing.
+Processors resist uncapped indemnities on the ground that they create unlimited financial exposure on account of events that may be partly attributable to the Fiduciary's own systems or instructions. This resistance is not unreasonable as a commercial matter, and the negotiation typically resolves around two intermediate positions. The first is a bifurcated cap structure, under which ordinary service failures are subject to a standard cap linked to fees, but breaches arising from the Processor's gross negligence or wilful misconduct are subject to a higher cap or no cap at all. The second is an insurance requirement, under which the Processor is required to maintain cyber liability insurance at a minimum coverage level specified in the DPA, providing the Fiduciary with an independent source of recovery that is not subject to the contractual cap. Both mechanisms address the mismatch between the Processor's fee-linked cap and the Fiduciary's regulatory exposure, without requiring the Processor to accept unlimited liability for every service failure.
 </p>
 
 <p>
-Where the processor's standard liability cap is unacceptable, the fiduciary may propose alternative structures. These may include higher caps for breaches caused by the processor's gross negligence or wilful misconduct, insurance requirements that provide additional coverage, or tiered caps based on the sensitivity of the data being processed.
+A further drafting consideration is the exclusion of consequential or indirect losses from the Processor's liability. Most commercial services agreements exclude indirect and consequential losses, including loss of revenue, loss of profit, and reputational damage. In the data processing context, many of the losses that a Fiduciary suffers from a breach are of precisely this character: the reputational damage from a public breach, the loss of customer confidence, and the commercial cost of managing the regulatory aftermath may dwarf the direct costs of remediation. The DPA should address whether consequential losses are excluded from the indemnity and, if they are, whether the exclusion applies to losses that are the direct consequence of the Processor's breach of its specific security and notification obligations, or only to losses arising from service interruption and ordinary performance failures.
 </p>
 
 
-<h2>VIII. Conclusion</h2>
+<h2>VIII. Audit Rights and Cooperation Obligations</h2>
 
 <p>
-The DPDP Act's fiduciary-centric model places primary responsibility for data protection compliance on Data Fiduciaries, while Data Processors are bound primarily through contract. This legislative choice makes the Data Processing Agreement a critical instrument for risk management and regulatory compliance.
+An effective DPA must give the Fiduciary the means to verify that the Processor is meeting its contractual obligations, rather than simply relying on contractual warranties that may be difficult to enforce after a breach has occurred. Audit rights serve this preventive function. The DPA should provide the Fiduciary with the right to conduct periodic audits of the Processor's data processing activities, either through direct on-site inspection, by requiring the Processor to procure and share independent third-party audit reports such as SOC 2 or ISO 27001 certification reports, or through a combination of both. The frequency and scope of audits should be proportionate to the sensitivity of the data being processed and the volume of personal data in the Processor's custody.
 </p>
 
 <p>
-The DPDP Rules, 2025, notified in November 2025 with phased implementation until May 2027, provide detailed requirements for these agreements. Effective DPAs must address several essential elements including scope limitation, security obligations, controls on sub-processing, audit rights, retention obligations, breach notification provisions, and grievance mechanisms. Liability allocation through indemnity and limitation clauses must be carefully negotiated to balance commercial realities with regulatory risk.
+Processors commonly resist unlimited on-site audit rights on the ground that they impose operational disruption and may expose their own confidential infrastructure to the Fiduciary's personnel. The practical resolution is to permit on-site audits with reasonable prior notice, typically thirty days, to limit the frequency of inspections absent cause, and to allow the Processor to satisfy routine audit obligations through the provision of third-party certification reports. Where an incident has occurred or where there is specific cause for concern, the DPA should provide for expedited audit access with shorter notice periods and broader scope.
 </p>
 
-<p class="article-disclaimer">
-<em>
-This article is provided for general informational and discussion purposes only and does not constitute legal advice, legal opinion, or a recommendation. It should not be relied upon as a substitute for obtaining professional legal advice in relation to any specific matter.
-This article has been prepared for publication on the website and other professional platforms and therefore does not follow formal legal citation conventions. The views expressed are personal to the author.
-</em>
+<p>
+The cooperation obligation is the operational complement to the audit right. The DPA should require the Processor to cooperate with any investigation conducted by the Fiduciary or by the Data Protection Board, to provide access to relevant records, systems, and personnel, and to assist the Fiduciary in preparing any response to a regulatory inquiry. This obligation should survive the termination of the DPA for a specified period, typically corresponding to any applicable limitation period or the period during which regulatory proceedings might be commenced, to ensure that the Processor's cooperation cannot be withdrawn at the moment it is most needed.
 </p>
+
+
+<h2>IX. Conclusion</h2>
+
+<p>
+The Data Processing Agreement under the Act is the instrument through which the Fiduciary's statutory exposure to the Processor's conduct is managed, limited, and, to the extent possible, redistributed. Its contractual architecture spans the scope of processing authorised, the security standards required, the controls on sub-processing, the notification obligations triggered by an incident, the retention and deletion regime at the end of the relationship, and the allocation of liability when something goes wrong. Each of these components involves a commercial negotiation between parties with different risk profiles and different bargaining positions, and the outcome of that negotiation determines how much of the Fiduciary's regulatory exposure survives as a residual risk it bears alone.
+</p>
+
+<p>
+The fiduciary-centric model of the Act makes thorough DPA negotiation a matter of regulatory necessity rather than commercial preference. A Fiduciary that accepts a Processor's standard data processing terms without assessing their adequacy against the Act's requirements, and without negotiating the liability allocation provisions that would enable it to recover losses caused by the Processor, has effectively accepted a contractual arrangement that transfers the risk of the Processor's failures entirely to itself. The DPA is the principal instrument for avoiding that outcome, and its negotiation deserves the same level of attention as any other material commercial contract in the organisation's vendor portfolio.
+</p>
+
+
+<div class="article-disclaimer">
+<p>This article is provided for general informational and discussion purposes only and does not constitute legal advice, legal opinion, or a recommendation. It should not be relied upon as a substitute for obtaining professional legal advice in relation to any specific matter. This article has been prepared for publication on the website and other professional platforms and therefore does not follow formal legal citation conventions. The views expressed are personal to the author.</p>
+</div>
 
 </main>
 
