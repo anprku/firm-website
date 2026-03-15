@@ -25,7 +25,7 @@ body {
 /* reading column */
 
 main {
-  max-width: 725px;
+  max-width: 735px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -102,7 +102,7 @@ header {
   margin-top: 0.3rem;
   margin-bottom: 0.6rem;
   text-align: justify;
-  font-size: 1.0625rem;
+  font-size: 1rem;
 }
 
 /* email styling – black text with gold underline */
