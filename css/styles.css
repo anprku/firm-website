@@ -327,6 +327,7 @@ footer {
 
 .case-law {
   font-style: italic;
+  line-height: inherit;
 }
 
 /* statutory or contractual quotation blocks */
