@@ -220,7 +220,7 @@ footer {
 /* archive container */
 
 .archive-list {
-  max-width: 700px;
+  max-width: 735px;
   margin: 1.75rem auto 0 auto;
 }
 
@@ -263,7 +263,7 @@ footer {
 /* article title */
 
 .art-title {
-  font-size: 1rem;
+  font-size: 1.0625rem;
   line-height: 1.4;
 }
 
