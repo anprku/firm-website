@@ -25,7 +25,7 @@ body {
 /* reading column */
 
 main {
-  max-width: 733px;
+  max-width: 735px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -102,7 +102,8 @@ header {
   margin-top: 0.3rem;
   margin-bottom: 0.6rem;
   text-align: justify;
-  font-size: 0.985rem;
+  font-size: 1rem;
+  hyphens: auto;
 }
 
 /* email styling – black text with gold underline */
@@ -220,7 +221,7 @@ footer {
 /* archive container */
 
 .archive-list {
-  max-width: 720px;
+  max-width: 700px;
   margin: 1.75rem auto 0 auto;
 }
 
@@ -322,6 +323,7 @@ footer {
 .article-body p {
   margin-bottom: 1.25rem;
   text-align: justify;
+  hyphens: auto;
 }
 
 /* case law / citations */
