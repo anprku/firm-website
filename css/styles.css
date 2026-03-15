@@ -146,13 +146,13 @@ header {
   color: #2a2621;
   text-decoration: none;
 
-  transition: background 0.25s ease, border-color 0.25s ease;
+  transition: color 0.25s ease;
 }
 
-/* hover fill */
+/* hover – text turns gold */
 
 .btn-browse:hover {
-  background: rgba(200, 164, 107, 0.30);
+  color: #c8a46b;
 }
 
 /* ---------- Footer ---------- */
