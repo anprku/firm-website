@@ -19,7 +19,7 @@ body {
 
   color: #2b2b2b;
   font-family: "EB Garamond", serif;
-  line-height: 1.35;
+  line-height: 1.25;
 }
 
 /* reading column */
@@ -102,7 +102,7 @@ header {
   margin-top: 0.3rem;
   margin-bottom: 0.6rem;
   text-align: justify;
-  font-size: 1.0625rem;
+  font-size: 1rem;
 }
 
 /* email styling – black text with gold underline */
