@@ -378,14 +378,9 @@ footer p {
   margin: 0;
 }
 
-/* justified text leaves wide word gaps on narrow columns */
+/* keep the year clear of long titles on narrow screens */
 
 @media (max-width: 600px) {
-  .section-block p,
-  .article-body p {
-    text-align: left;
-  }
-
   .art-year {
     padding-left: 0.75rem;
   }
