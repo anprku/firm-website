@@ -333,7 +333,7 @@ footer {
 .article-body p {
   margin-bottom: 1.25rem;
   text-align: justify;
-  hyphens: auto;
+  hyphens: manual;
 }
 
 /* case law / citations */
