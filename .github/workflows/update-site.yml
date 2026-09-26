@@ -1,0 +1,63 @@
+# When an article is added or changed on main, make its share card, add any
+# missing search and sharing tags, and rebuild sitemap.xml. See
+# .github/site-tools/update_site.py for what it does to each page.
+
+name: Update search and sharing details
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "articles/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: update-site
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # full history, for the sitemap's last-changed dates
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Pillow
+        run: pip install pillow==12.3.0
+
+      - name: Update articles, share cards and sitemap
+        run: python3 .github/site-tools/update_site.py
+
+      - name: Commit any changes
+        id: commit
+        run: |
+          git add -A articles assets/share sitemap.xml
+          if git diff --cached --quiet; then
+            echo "Nothing to update."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update search and sharing details"
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      # Pushes made by this workflow may not start a GitHub Pages build on
+      # their own, so ask for one.
+      - name: Rebuild the site
+        if: steps.commit.outputs.changed == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds"
