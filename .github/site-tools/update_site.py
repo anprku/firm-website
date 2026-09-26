@@ -7,7 +7,9 @@ For every page in articles/ (other than index.html) it:
     (delete a card to have it made again, e.g. after changing a title);
   - adds any missing tags: description, Open Graph, share image, canonical
     link and schema.org Article data.
-Tags already present are left exactly as they are. It then rewrites
+Tags already present are left exactly as they are. It also removes any
+Google Fonts link (the fonts are served from this site) and points the
+stylesheet link at the version the home page uses. It then rewrites
 sitemap.xml from the home page, the archive and every article.
 
 An article needs only its title in <h1 class="article-title"> and its date
@@ -223,6 +225,15 @@ def update_article(path):
         if at < 0:
             at = s.find("</head>")
         s = s[:at] + block + s[at:]
+
+    # Fonts are served from this site; drop any Google Fonts link pasted in.
+    s = re.sub(r'\n?<link[^>]*fonts\.(googleapis|gstatic)\.com[^>]*>\n', "\n", s)
+
+    # Point at the current stylesheet version, as used by the home page.
+    version = re.search(r'styles\.css(\?v=\d+)?"', open("index.html", encoding="utf-8").read())
+    if version:
+        s = re.sub(r'(href="/?(?:\.\./)?css/styles\.css)(\?v=\d+)?"',
+                   lambda m: 'href="/css/styles.css' + (version.group(1) or "") + '"', s)
 
     if "/js/article-nav.js" not in s and "</body>" in s:
         s = s.replace("</body>", '<script src="/js/article-nav.js" defer></script>\n\n</body>', 1)

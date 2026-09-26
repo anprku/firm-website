@@ -2,6 +2,66 @@
 /* APK LAW – COMPLETE STYLE SHEET */
 /* ============================== */
 
+/* ---------- Fonts ---------- */
+
+/* Served from this site rather than Google Fonts, so visitors' browsers
+   contact no third party. Playfair Display and EB Garamond are licensed
+   under the SIL Open Font License (see assets/fonts/). */
+
+@font-face {
+  font-family: "EB Garamond";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/EBGaramond-Italic-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "EB Garamond";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/EBGaramond-Italic-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "EB Garamond";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/EBGaramond-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "EB Garamond";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/EBGaramond-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../assets/fonts/PlayfairDisplay-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../assets/fonts/PlayfairDisplay-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   color-scheme: light only;
 }
@@ -370,6 +430,92 @@ blockquote {
   margin: 0;
 }
 
+/* footnote markers */
+
+.article-body sup {
+  font-size: 0.7em;
+  vertical-align: super;
+  line-height: 0;
+}
+
+/* tables */
+
+.table-caption {
+  font-family: "Playfair Display", serif;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: #2b2b2b;
+  margin-bottom: 0.5rem;
+  margin-top: 2rem;
+}
+
+.table-caption::after {
+  content: "";
+  display: block;
+  width: 34px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #c8a46b, transparent);
+  margin: 0.3rem 0 0.6rem 0;
+}
+
+.article-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0 2rem 0;
+  font-family: "EB Garamond", serif;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+.article-table th {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #c8a46b;
+  color: #2b2b2b;
+}
+
+.article-table td {
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid #ddd8ce;
+  vertical-align: top;
+  color: #2b2b2b;
+}
+
+.article-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* endnotes */
+
+.article-notes {
+  margin: 60px auto 20px auto;
+  padding-top: 24px;
+  border-top: 1px solid #ddd8ce;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.article-notes h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.article-notes ol {
+  padding-left: 1.2em;
+  margin: 0;
+}
+
+.article-notes ol li {
+  margin-bottom: 0.5rem;
+}
+
 /* ---------- Small screens ---------- */
 
 /* footer text sits flush whether or not it is wrapped in <p> */
@@ -383,6 +529,12 @@ footer p {
 @media (max-width: 600px) {
   .art-year {
     padding-left: 0.75rem;
+  }
+
+  .article-table th,
+  .article-table td {
+    padding-left: 0.35rem;
+    padding-right: 0.35rem;
   }
 }
 
