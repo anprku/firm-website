@@ -108,9 +108,9 @@ Formatting conventions, as used in the existing articles:
 - **Headings:** `<h2>`, numbered with Roman numerals as the author writes them
   ("I. Introduction", "II. …").
 - **Paragraphs:** each in its own `<p>`.
-- **Case names** in italics: `<em>Vidya Drolia v. Durga Trading Corporation</em>`.
-  Pasted text often loses italics, so italicise case names and list which ones
-  you italicised when you report back.
+- **No added italics.** Keep the text exactly as pasted; do not italicise case
+  names or anything else unless the owner asks. (Some older articles have
+  italicised case names; leave those as they are.)
 - **Quoted extracts** from statutes or judgments: `<blockquote>`.
 - **Footnotes:** a marker in the text, `<sup>1</sup>`, and the notes at the end
   of the article, inside `<main>` and before the disclaimer:
@@ -182,6 +182,6 @@ script.
   right subject filter.
 - Show the owner the share card image.
 - In the pull request and in the chat, list anything you were unsure about
-  (italicised case names, suspected typos, heading levels).
+  (suspected typos, heading levels).
 
 After merging, confirm the workflow run succeeded.
