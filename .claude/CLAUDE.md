@@ -18,7 +18,11 @@ language and avoid jargon.
   punctuation. If something looks like a typo, point it out and ask; do not
   change it.
 - **Changes go through a pull request** from the working branch into `main`.
-  Merge only when the owner says so.
+  For a **new article**, the owner has agreed that you merge it yourself once
+  every check under "Before opening the pull request" passes, then send the
+  owner the link, a preview screenshot and the share card. Any other change to
+  the site (design, text on existing pages, settings) waits for the owner's
+  approval before merging.
 
 ## Publishing a new article
 
@@ -184,4 +188,6 @@ script.
 - In the pull request and in the chat, list anything you were unsure about
   (suspected typos, heading levels).
 
-After merging, confirm the workflow run succeeded.
+Then merge (see Ground rules), confirm the workflow run succeeded, and send
+the owner the live link, the preview and the share card. If you were unsure
+about anything, ask before merging instead.
