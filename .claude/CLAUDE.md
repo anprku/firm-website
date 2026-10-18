@@ -167,9 +167,13 @@ Add one entry to the list, which runs newest first by date:
 When the change reaches `main`, the GitHub Actions workflow
 `.github/workflows/update-site.yml` runs `.github/site-tools/update_site.py`,
 which makes the share card (`assets/share/<file-name>.jpg`), adds the
-description, Open Graph, canonical and schema.org tags and the Earlier/Later
-links script, and updates `sitemap.xml`. It only adds what is missing and never
-edits the article text.
+description, Open Graph, canonical, feed and schema.org tags and the
+Earlier/Later links script, and updates `sitemap.xml` and the RSS feed
+(`feed.xml`). It also gives every heading an id and a quiet "§" section link,
+and turns plain footnote markers (`<sup>1</sup>`) into links to their notes
+with a "↩" link back. So write headings and footnote markers plainly, as in the
+skeleton; don't add ids or links by hand. It only adds what is missing and
+never changes the article's words.
 
 To let the owner see the finished result before merging, run the script
 locally (`pip install pillow`, then `python3 .github/site-tools/update_site.py`
@@ -229,6 +233,10 @@ not installed, follow the README's one-time setup; don't skip the check.
   section (`article-notes`). Don't add `<style>` blocks to individual pages.
 - **Paragraphs are justified, without automatic hyphenation**, on every screen
   size, phones included. The owner chose this.
+- **Article reading aids** (made by the automatic job): a "§" after each heading
+  links to that section; it is hidden until the heading is pointed at on a
+  computer and faint on phones, and clicking it also copies the link.
+  Footnote numbers link to their notes and back. Keep these quiet.
 - **The home page** (`index.html`, `body class="home"`):
   - Phones and small tablets (under 900px): one column, in the order Notice,
     Notes and Reflections, The Practice.

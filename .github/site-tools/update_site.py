@@ -6,11 +6,14 @@ For every page in articles/ (other than index.html) it:
   - makes a share card at assets/share/<file name>.jpg if there isn't one
     (delete a card to have it made again, e.g. after changing a title);
   - adds any missing tags: description, Open Graph, share image, canonical
-    link and schema.org Article data.
+    link, feed link and schema.org Article data;
+  - gives each heading an id and a section mark (§) linking to it, and links
+    footnote numbers to their notes and back (markup only; no words change).
 Tags already present are left exactly as they are. It also removes any
 Google Fonts link (the fonts are served from this site) and points the
 stylesheet link at the version the home page uses. It then rewrites
-sitemap.xml from the home page, the archive and every article.
+sitemap.xml from the home page, the archive and every article, and feed.xml
+(the RSS feed) from the archive list.
 
 An article needs only its title in <h1 class="article-title"> and its date
 ("Month YYYY") in <div class="article-date">.
@@ -235,6 +238,14 @@ def update_article(path):
         s = re.sub(r'(href="/?(?:\.\./)?css/styles\.css)(\?v=\d+)?"',
                    lambda m: 'href="/css/styles.css' + (version.group(1) or "") + '"', s)
 
+    s = add_section_links(s)
+    s = link_footnotes(s)
+
+    feed_link = ('<link rel="alternate" type="application/rss+xml" '
+                 'title="APK Law: Notes and Reflections" href="/feed.xml">')
+    if "application/rss+xml" not in s:
+        s = s.replace('<link rel="canonical"', feed_link + '\n<link rel="canonical"', 1)
+
     if "/js/article-nav.js" not in s and "</body>" in s:
         s = s.replace("</body>", '<script src="/js/article-nav.js" defer></script>\n\n</body>', 1)
 
@@ -243,6 +254,75 @@ def update_article(path):
         print(f"updated {path}")
         return True
     return False
+
+
+# ---------- Section links and footnotes ----------
+
+def slugify(text, taken):
+    base = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")[:60].strip("-") or "section"
+    slug, n = base, 2
+    while slug in taken:
+        slug, n = f"{base}-{n}", n + 1
+    taken.add(slug)
+    return slug
+
+
+def add_section_links(s):
+    """Give each article heading an id and a quiet section mark (the "§") that
+    links to it, so a reader can share a link to one part of an article."""
+    start = s.find('<main class="article-body">')
+    end = s.find("</main>", start)
+    if start < 0 or end < 0:
+        return s
+    body = s[start:end]
+    notes_at = body.find('<div class="article-notes">')
+    taken = set(re.findall(r'id="([^"]+)"', s))
+
+    def heading(m):
+        if notes_at >= 0 and m.start() > notes_at:
+            return '<h2 id="notes">' + m.group(1) + "</h2>" if "notes" not in taken else m.group(0)
+        slug = slugify(" ".join(html.unescape(re.sub(r"<[^>]+>", "", m.group(1))).split()), taken)
+        return (f'<h2 id="{slug}">{m.group(1)} <a class="section-link" href="#{slug}" '
+                f'aria-label="Link to this section">§</a></h2>')
+
+    body = re.sub(r"<h2>(.*?)</h2>", heading, body, flags=re.S)
+    return s[:start] + body + s[end:]
+
+
+def link_footnotes(s):
+    """Turn footnote numbers into links to their notes, with a link back."""
+    if 'class="fn-ref"' in s or '<div class="article-notes">' not in s:
+        return s
+    notes_start = s.index('<div class="article-notes">')
+    ol = re.search(r"<ol>(.*?)</ol>", s[notes_start:], re.S)
+    if not ol:
+        return s
+    count = len(re.findall(r"<li>", ol.group(1)))
+    seen = {}
+
+    def marker(m):
+        n = int(m.group(1))
+        if n < 1 or n > count:
+            return m.group(0)
+        seen[n] = seen.get(n, 0) + 1
+        ref_id = f"fnref-{n}" if seen[n] == 1 else f"fnref-{n}-{seen[n]}"
+        return (f'<sup id="{ref_id}"><a class="fn-ref" href="#fn-{n}" '
+                f'aria-label="Note {n}">{n}</a></sup>')
+
+    head = re.sub(r"<sup>(\d+)</sup>", marker, s[:notes_start])
+    tail = s[notes_start:]
+    ol = re.search(r"<ol>(.*?)</ol>", tail, re.S)
+    items = iter(range(1, count + 1))
+
+    def item(m):
+        n = next(items)
+        back = (f' <a class="fn-back" href="#fnref-{n}" aria-label="Back to the text">↩</a>'
+                if n in seen else "")
+        return f'<li id="fn-{n}">{m.group(1)}{back}</li>'
+
+    new_ol = re.sub(r"<li>(.*?)</li>", item, ol.group(1), flags=re.S)
+    tail = tail[:ol.start(1)] + new_ol + tail[ol.end(1):]
+    return head + tail
 
 
 # ---------- Sitemap ----------
@@ -273,9 +353,57 @@ def write_sitemap(articles):
         print("updated sitemap.xml")
 
 
+# ---------- Feed ----------
+
+def write_feed():
+    """An RSS feed of the articles, newest first, in the archive list's order,
+    so readers can follow new articles in a feed reader."""
+    idx = open("articles/index.html", encoding="utf-8").read()
+    order = re.findall(r'<li data-subject="[^"]+" data-year="\d+">\s*<a href="([^"]+)">', idx)
+    months = list(MONTHS)
+    items = []
+    for f in order:
+        path = f"articles/{f}"
+        if not os.path.exists(path):
+            continue
+        s = open(path, encoding="utf-8").read()
+        m = re.search(r'<h1 class="article-title">(.*?)</h1>', s, re.S)
+        d = re.search(r'class="article-date">\s*(\w+)\s+(\d{4})', s)
+        if not m or not d or d.group(1) not in MONTHS:
+            continue
+        title = " ".join(html.unescape(re.sub(r"<[^>]+>", "", m.group(1))).split())
+        desc = meta(s, "name", "description") or first_paragraph(s)
+        url = f"{SITE}/articles/{f}"
+        date = f"01 {months[MONTHS[d.group(1)] - 1][:3]} {d.group(2)} 00:00:00 +0530"
+        items.append("    <item>\n"
+                     f"      <title>{html.escape(title, quote=False)}</title>\n"
+                     f"      <link>{url}</link>\n"
+                     f'      <guid isPermaLink="true">{url}</guid>\n'
+                     f"      <pubDate>{date}</pubDate>\n"
+                     f"      <description>{html.escape(desc, quote=False)}</description>\n"
+                     "    </item>")
+    text = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
+            "  <channel>\n"
+            "    <title>APK Law, Advocates: Notes and Reflections</title>\n"
+            f"    <link>{SITE}/articles/</link>\n"
+            "    <description>Analytical pieces, case comments, and short reflections on "
+            "questions of law.</description>\n"
+            "    <language>en-IN</language>\n"
+            f'    <atom:link href="{SITE}/feed.xml" rel="self" type="application/rss+xml"/>\n'
+            + "\n".join(items) + "\n"
+            "  </channel>\n"
+            "</rss>\n")
+    old = open("feed.xml", encoding="utf-8").read() if os.path.exists("feed.xml") else ""
+    if text != old:
+        open("feed.xml", "w", encoding="utf-8").write(text)
+        print("updated feed.xml")
+
+
 if __name__ == "__main__":
     articles = sorted(p for p in glob.glob("articles/*.html")
                       if os.path.basename(p) != "index.html")
     for p in articles:
         update_article(p)
     write_sitemap(articles)
+    write_feed()
