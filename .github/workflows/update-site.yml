@@ -1,6 +1,5 @@
 # When an article is added or changed on main, make its share card, add any
-# missing search and sharing tags, section and footnote links, and rebuild
-# sitemap.xml and the feed. See
+# missing search and sharing tags, and rebuild sitemap.xml and the feed. See
 # .github/site-tools/update_site.py for what it does to each page.
 
 name: Update search and sharing details

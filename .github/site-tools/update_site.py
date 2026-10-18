@@ -6,9 +6,7 @@ For every page in articles/ (other than index.html) it:
   - makes a share card at assets/share/<file name>.jpg if there isn't one
     (delete a card to have it made again, e.g. after changing a title);
   - adds any missing tags: description, Open Graph, share image, canonical
-    link, feed link and schema.org Article data;
-  - gives each heading an id and a section mark (§) linking to it, and links
-    footnote numbers to their notes and back (markup only; no words change).
+    link, feed link and schema.org Article data.
 Tags already present are left exactly as they are. It also removes any
 Google Fonts link (the fonts are served from this site) and points the
 stylesheet link at the version the home page uses. It then rewrites
@@ -239,9 +237,6 @@ def update_article(path):
         s = re.sub(r'(href="/?(?:\.\./)?css/styles\.css)(\?v=\d+)?"',
                    lambda m: 'href="/css/styles.css' + (version.group(1) or "") + '"', s)
 
-    s = add_section_links(s)
-    s = link_footnotes(s)
-
     feed_link = ('<link rel="alternate" type="application/rss+xml" '
                  'title="APK Law: Notes and Reflections" href="/feed.xml">')
     if "application/rss+xml" not in s:
@@ -255,75 +250,6 @@ def update_article(path):
         print(f"updated {path}")
         return True
     return False
-
-
-# ---------- Section links and footnotes ----------
-
-def slugify(text, taken):
-    base = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")[:60].strip("-") or "section"
-    slug, n = base, 2
-    while slug in taken:
-        slug, n = f"{base}-{n}", n + 1
-    taken.add(slug)
-    return slug
-
-
-def add_section_links(s):
-    """Give each article heading an id and a quiet section mark (the "§") that
-    links to it, so a reader can share a link to one part of an article."""
-    start = s.find('<main class="article-body">')
-    end = s.find("</main>", start)
-    if start < 0 or end < 0:
-        return s
-    body = s[start:end]
-    notes_at = body.find('<div class="article-notes">')
-    taken = set(re.findall(r'id="([^"]+)"', s))
-
-    def heading(m):
-        if notes_at >= 0 and m.start() > notes_at:
-            return '<h2 id="notes">' + m.group(1) + "</h2>" if "notes" not in taken else m.group(0)
-        slug = slugify(" ".join(html.unescape(re.sub(r"<[^>]+>", "", m.group(1))).split()), taken)
-        return (f'<h2 id="{slug}">{m.group(1)} <a class="section-link" href="#{slug}" '
-                f'aria-label="Link to this section">§</a></h2>')
-
-    body = re.sub(r"<h2>(.*?)</h2>", heading, body, flags=re.S)
-    return s[:start] + body + s[end:]
-
-
-def link_footnotes(s):
-    """Turn footnote numbers into links to their notes, with a link back."""
-    if 'class="fn-ref"' in s or '<div class="article-notes">' not in s:
-        return s
-    notes_start = s.index('<div class="article-notes">')
-    ol = re.search(r"<ol>(.*?)</ol>", s[notes_start:], re.S)
-    if not ol:
-        return s
-    count = len(re.findall(r"<li>", ol.group(1)))
-    seen = {}
-
-    def marker(m):
-        n = int(m.group(1))
-        if n < 1 or n > count:
-            return m.group(0)
-        seen[n] = seen.get(n, 0) + 1
-        ref_id = f"fnref-{n}" if seen[n] == 1 else f"fnref-{n}-{seen[n]}"
-        return (f'<sup id="{ref_id}"><a class="fn-ref" href="#fn-{n}" '
-                f'aria-label="Note {n}">{n}</a></sup>')
-
-    head = re.sub(r"<sup>(\d+)</sup>", marker, s[:notes_start])
-    tail = s[notes_start:]
-    ol = re.search(r"<ol>(.*?)</ol>", tail, re.S)
-    items = iter(range(1, count + 1))
-
-    def item(m):
-        n = next(items)
-        back = (f' <a class="fn-back" href="#fnref-{n}" aria-label="Back to the text">↩</a>'
-                if n in seen else "")
-        return f'<li id="fn-{n}">{m.group(1)}{back}</li>'
-
-    new_ol = re.sub(r"<li>(.*?)</li>", item, ol.group(1), flags=re.S)
-    tail = tail[:ol.start(1)] + new_ol + tail[ol.end(1):]
-    return head + tail
 
 
 # ---------- Sitemap ----------
