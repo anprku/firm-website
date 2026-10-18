@@ -5,7 +5,7 @@ Run from the repository root:  python3 .github/site-tools/check_site.py
 Needs only Python 3 (no packages, no browser). It reads the files in the
 repository and reports anything inconsistent: an article missing from the
 archive list, the sitemap or the feed, a broken link (including links to
-sections and footnotes within a page), a missing share card or tag, a
+a place within a page), a missing share card or tag, a
 stylesheet version out of step, anything loaded from another website, or a
 change to the wording of the home page Notice.
 

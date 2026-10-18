@@ -49,24 +49,3 @@
     })
     .catch(function () {});
 })();
-
-/* Clicking a section mark (§) also copies the link to that section. */
-
-(function () {
-  document.querySelectorAll('.section-link').forEach(function (a) {
-    a.addEventListener('click', function () {
-      var url = location.href.split('#')[0] + a.getAttribute('href');
-      if (!navigator.clipboard) return;
-      navigator.clipboard.writeText(url).then(function () {
-        var h = a.parentNode;
-        var old = h.querySelector('.section-link-copied');
-        if (old) old.remove();
-        var note = document.createElement('span');
-        note.className = 'section-link-copied';
-        note.textContent = 'Link copied';
-        h.appendChild(note);
-        setTimeout(function () { note.remove(); }, 1800);
-      }).catch(function () {});
-    });
-  });
-})();

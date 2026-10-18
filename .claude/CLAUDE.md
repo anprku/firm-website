@@ -170,11 +170,8 @@ When the change reaches `main`, the GitHub Actions workflow
 which makes the share card (`assets/share/<file-name>.jpg`), adds the
 description, Open Graph, canonical, feed and schema.org tags and the
 Earlier/Later links script, and updates `sitemap.xml` and the RSS feed
-(`feed.xml`). It also gives every heading an id and a quiet "§" section link,
-and turns plain footnote markers (`<sup>1</sup>`) into links to their notes
-with a "↩" link back. So write headings and footnote markers plainly, as in the
-skeleton; don't add ids or links by hand. It only adds what is missing and
-never changes the article's words.
+(`feed.xml`). It only adds what is missing and never changes the article's
+words.
 
 To let the owner see the finished result before merging, run the script
 locally (`pip install pillow`, then `python3 .github/site-tools/update_site.py`
@@ -253,10 +250,10 @@ not installed, follow the README's one-time setup; don't skip the check.
   outline box. The owner doesn't want boxes around focused items.
 - **The footer** reads "© YEAR APK Law, Advocates" on every page; the
   automatic jobs keep the year current.
-- **Article reading aids** (made by the automatic job): a "§" after each heading
-  links to that section; it is hidden until the heading is pointed at on a
-  computer and faint on phones, and clicking it also copies the link.
-  Footnote numbers link to their notes and back. Keep these quiet.
+- **No section links or clickable footnotes.** Headings and footnote numbers
+  stay plain text. The owner tried "§" section links and linked footnotes and
+  had them removed as out of keeping with the site; don't add them, or
+  anything like them, again.
 - **The home page** (`index.html`, `body class="home"`):
   - Phones and small tablets (under 900px): one column, in the order Notice,
     Notes and Reflections, The Practice.
