@@ -516,7 +516,7 @@ blockquote {
   margin-bottom: 0.5rem;
 }
 
-/* ---------- Home page on larger screens ---------- */
+/* ---------- Home page ---------- */
 
 /* footer sits at the foot of the window rather than mid-screen */
 
@@ -532,7 +532,12 @@ body.home main {
   box-sizing: border-box;
 }
 
-/* a slightly narrower column with larger, more open text */
+/* one column on phones and small tablets: sections separated by a rule */
+
+body.home .home-col-right .section-block {
+  border-top: 1px solid #ddd8ce;
+  padding-top: 1rem;
+}
 
 @media (min-width: 700px) {
   body.home main {
@@ -548,6 +553,74 @@ body.home main {
   body.home .section-block p {
     font-size: 1.0625rem;
     line-height: 1.5;
+  }
+}
+
+/* two columns on laptops and larger: the Notice on the left, the writings
+   and the practice on the right. Sizes grow with the screen from a laptop
+   upward, and the block is centred between header and footer. */
+
+@media (min-width: 900px) {
+  body.home main.home-grid {
+    max-width: clamp(1088px, 75.5vw, 1560px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: center;
+    padding-top: 2.2rem;
+    padding-bottom: 2.2rem;
+  }
+
+  body.home .home-col-left {
+    padding-right: clamp(3rem, 3.3vw, 4.5rem);
+    border-right: 1px solid #ddd8ce;
+  }
+
+  body.home .home-col-right {
+    padding-left: clamp(3rem, 3.3vw, 4.5rem);
+  }
+
+  body.home main.home-grid .section-block {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  body.home .home-col-right .section-block {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  body.home main.home-grid .home-col-right .practice {
+    border-top: 1px solid #ddd8ce;
+    margin-top: 0.6rem;
+    padding-top: 0.8rem;
+  }
+
+  body.home .home-col-right .btn-browse {
+    margin-bottom: 0;
+  }
+
+  body.home main.home-grid .section-block p {
+    font-size: clamp(1.0625rem, 1.18vw, 1.5rem);
+  }
+
+  body.home main.home-grid .section-block h2 {
+    font-size: clamp(1.125rem, 1.25vw, 1.6rem);
+  }
+
+  body.home main.home-grid .btn-browse {
+    font-size: clamp(0.889rem, 0.99vw, 1.25rem);
+  }
+
+  body.home .logo-wrap img {
+    width: clamp(100px, 6.95vw, 140px);
+  }
+
+  body.home .site-title {
+    font-size: clamp(1.375rem, 1.53vw, 2rem);
+  }
+
+  body.home footer {
+    font-size: clamp(0.875rem, 0.97vw, 1.2rem);
   }
 }
 
