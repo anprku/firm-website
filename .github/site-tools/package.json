@@ -1,0 +1,11 @@
+{
+  "name": "apklaw-site-tools",
+  "private": true,
+  "description": "Checking tools for the apklaw.in site. Not part of the published site.",
+  "scripts": {
+    "check": "python3 check_site.py && node check_pages.js"
+  },
+  "devDependencies": {
+    "playwright": "1.56.1"
+  }
+}
