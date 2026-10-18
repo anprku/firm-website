@@ -1,0 +1,4 @@
+# local tool files, never part of the site
+__pycache__/
+node_modules/
+preview/

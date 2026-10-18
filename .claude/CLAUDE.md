@@ -17,6 +17,8 @@ language and avoid jargon.
   reword, correct, summarise or "improve" the author's writing, citations or
   punctuation. If something looks like a typo, point it out and ask; do not
   change it.
+- **Check before every pull request.** Run both checks (see "Checking the
+  site" below); both must report "No problems found".
 - **Changes go through a pull request** from the working branch into `main`.
   For a **new article**, the owner has agreed that you merge it yourself once
   every check under "Before opening the pull request" passes, then send the
@@ -179,9 +181,10 @@ script.
 
 ### Before opening the pull request
 
-- Serve the site locally (`python3 -m http.server`) and check the new article at
-  desktop and phone widths: headings, italics, footnotes, tables, the
-  disclaimer, and the Earlier/Later links.
+- Run both checks (see "Checking the site") and save previews of the new
+  article: `node .github/site-tools/check_pages.js --shots preview --page /articles/<file-name>.html`.
+  Look at the screenshots yourself: headings, footnotes, tables, the
+  disclaimer and the Earlier/Later links.
 - Check the archive list shows the article in the right place and under the
   right subject filter.
 - Show the owner the share card image.
@@ -191,3 +194,70 @@ script.
 Then merge (see Ground rules), confirm the workflow run succeeded, and send
 the owner the live link, the preview and the share card. If you were unsure
 about anything, ask before merging instead.
+
+## Checking the site
+
+Two tools in `.github/site-tools/` (setup and details in its `README.md`):
+
+```
+python3 .github/site-tools/check_site.py     # the files: needs only Python
+node .github/site-tools/check_pages.js       # real browser: needs Node + Playwright
+```
+
+- `check_site.py` checks the archive list, sitemap, links, tags, share cards,
+  stylesheet version, that nothing loads from another website, and that the
+  Notice wording is unchanged. "Notes" it prints (such as a link-preview title
+  that differs from the page title) are wording choices for the owner, not
+  errors; mention them, don't change them.
+- `check_pages.js` opens every page at laptop and phone size and checks the home
+  page fits the window at eight common laptop and monitor sizes. Add
+  `--shots preview --page /path.html` to save screenshots for the owner.
+
+Run both before every pull request and report what they said. If Playwright is
+not installed, follow the README's one-time setup; don't skip the check.
+
+## Design rules (don't undo these)
+
+- **Fonts** are Playfair Display (headings) and EB Garamond (text, with its
+  italic), served from `assets/fonts/`. Add no other fonts.
+- **Stylesheet version.** Every page links `css/styles.css?v=N`. After any
+  change to `css/styles.css`, raise N by one on all pages (home, 404, archive and
+  every article), so visitors' browsers fetch the new file. The automatic job
+  also brings articles in line with the version used by `index.html`.
+- **Shared styles live in `css/styles.css`**, including those for article
+  tables (`article-table`, `table-caption`), footnote markers and the Notes
+  section (`article-notes`). Don't add `<style>` blocks to individual pages.
+- **Paragraphs are justified, without automatic hyphenation**, on every screen
+  size, phones included. The owner chose this.
+- **The home page** (`index.html`, `body class="home"`):
+  - Phones and small tablets (under 900px): one column, in the order Notice,
+    Notes and Reflections, The Practice.
+  - 900px and wider: two columns. The Notice is on the left; Notes and
+    Reflections (with "The Writings" button), a thin rule, then The Practice are
+    on the right. A faint vertical rule separates them.
+  - At 900px and wider, every size on the home page comes from one unit,
+    `--fs = clamp(14px, min(1.18vw, 2.3vh), 24px)`: text, headings, button,
+    logo, title, header and footer spacing, and the column width
+    (`65.5 × --fs`). Because it follows the window's height as well as its
+    width, the whole page, footer included, fits the browser window without
+    scrolling. Don't replace these with fixed sizes.
+  - The width ratio 65.5 was chosen because ratios from 64.5 to 67 leave no
+    justified line with stretched word gaps at any common size. If the home page
+    text changes, run `check_pages.js`; if it reports wide gaps or scrolling,
+    test other ratios in that range rather than adding hyphens or changing the
+    owner's words.
+  - The text of the Notice and of The Practice is the owner's. Change it only
+    when they ask. `check_site.py` holds a fingerprint of the Notice and fails
+    if its wording changes; if the owner does ask, update the fingerprint it
+    prints.
+
+## Working from any Claude Code session
+
+The site is plain files on GitHub, and the automatic job runs on GitHub, so it
+can be maintained from Claude Code on the owner's computer or in the cloud
+alike. Work on a branch, open a pull request into `main` (with the GitHub tools
+available in the session, or by pushing the branch and asking the owner to
+open it on github.com), and follow the merge rule in Ground rules. After a
+merge that touches `articles/`, confirm the "Update search and sharing
+details" workflow run on GitHub succeeded.
+
