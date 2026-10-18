@@ -665,6 +665,75 @@ footer p {
   }
 }
 
+/* ---------- Section links and footnotes ---------- */
+
+/* a quiet section mark after each heading; hidden until the heading is
+   pointed at on a computer, faint on touch screens */
+
+.article-body h2 {
+  scroll-margin-top: 1rem;
+}
+
+.section-link {
+  margin-left: 0.3em;
+  font-family: "EB Garamond", serif;
+  font-weight: 400;
+  font-size: 0.8em;
+  color: #7d6318;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.article-body h2:hover .section-link,
+.section-link:focus {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .section-link {
+    opacity: 0.45;
+  }
+}
+
+.section-link-copied {
+  margin-left: 0.5em;
+  font-family: "EB Garamond", serif;
+  font-weight: 400;
+  font-size: 0.7em;
+  color: #6e604c;
+}
+
+/* footnote numbers link to their notes, and back */
+
+.article-body sup a.fn-ref {
+  color: #7d6318;
+  text-decoration: none;
+  padding: 0 0.1em;
+}
+
+.fn-back {
+  margin-left: 0.3em;
+  color: #7d6318;
+  text-decoration: none;
+}
+
+.article-notes li {
+  scroll-margin-top: 1rem;
+}
+
+/* returning from a note lands the marker a third of the way down the screen,
+   so the sentence it belongs to is in view */
+
+.article-body sup[id] {
+  scroll-margin-top: 33vh;
+}
+
+.article-notes li:target,
+.article-body sup:target {
+  background: rgba(200, 164, 107, 0.18);
+}
+
 /* ---------- Earlier / later article links ---------- */
 
 .article-nav {
@@ -728,6 +797,8 @@ footer p {
   .back-link,
   .filter-bar,
   .article-nav,
+  .section-link,
+  .fn-back,
   footer {
     display: none;
   }

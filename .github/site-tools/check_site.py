@@ -4,7 +4,8 @@ Run from the repository root:  python3 .github/site-tools/check_site.py
 
 Needs only Python 3 (no packages, no browser). It reads the files in the
 repository and reports anything inconsistent: an article missing from the
-archive list or the sitemap, a broken link, a missing share card or tag, a
+archive list, the sitemap or the feed, a broken link (including links to
+sections and footnotes within a page), a missing share card or tag, a
 stylesheet version out of step, anything loaded from another website, or a
 change to the wording of the home page Notice.
 
@@ -88,6 +89,12 @@ def check_articles():
         if listed.count(f) > 1:
             problem(f"articles/index.html: lists {f} more than once")
 
+    feed = read("feed.xml") if os.path.exists("feed.xml") else ""
+    feed_links = re.findall(r"<link>([^<]+)</link>", feed)
+    for f in files:
+        if f"https://{SITE_HOST}/articles/{f}" not in feed_links:
+            problem(f"articles/{f}: not in feed.xml (the automatic job adds it on main)")
+
     sitemap = read("sitemap.xml") if os.path.exists("sitemap.xml") else ""
     locs = set(re.findall(r"<loc>([^<]+)</loc>", sitemap))
     for f in files:
@@ -139,7 +146,8 @@ def check_articles():
                           ('property="og:image"', "share image tag"),
                           ('rel="canonical"', "canonical link"),
                           ("application/ld+json", "structured data"),
-                          ("/js/article-nav.js", "Earlier/Later links script")]:
+                          ("/js/article-nav.js", "Earlier/Later links script"),
+                          ("application/rss+xml", "feed link")]:
             if key not in s:
                 problem(f"{path}: missing {what} (run update_site.py, or the automatic "
                         "job adds it on main)")
@@ -185,6 +193,12 @@ def check_links():
                 target = os.path.join(target, "index.html")
             if not os.path.exists(target):
                 problem(f"{page}: broken link or missing file '{ref}'")
+        ids = re.findall(r'\bid="([^"]+)"', s)
+        for dup in sorted({i for i in ids if ids.count(i) > 1}):
+            problem(f"{page}: the id '{dup}' is used more than once")
+        for frag in re.findall(r'href="#([^"]+)"', s):
+            if frag not in ids:
+                problem(f"{page}: link to '#{frag}' has no matching section or note")
         if re.search(r"fonts\.(googleapis|gstatic)\.com", s):
             problem(f"{page}: uses Google Fonts; fonts must be served from assets/fonts/")
 

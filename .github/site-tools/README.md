@@ -4,8 +4,8 @@ Tools for maintaining apklaw.in. None of this is published on the website.
 
 | File | What it does | Needs |
 |---|---|---|
-| `update_site.py` | Makes share cards, adds missing search and sharing tags, rebuilds `sitemap.xml`. Runs automatically on GitHub after each change to an article. | Python 3, Pillow |
-| `check_site.py` | Checks the files: archive list, sitemap, links, tags, share cards, stylesheet version, no third-party sites, Notice wording unchanged. | Python 3 |
+| `update_site.py` | Makes share cards; adds missing search and sharing tags, section links and footnote links; rebuilds `sitemap.xml` and the RSS feed `feed.xml`. Runs automatically on GitHub after each change to an article. | Python 3, Pillow |
+| `check_site.py` | Checks the files: archive list, sitemap, feed, links (including section and footnote links), tags, share cards, stylesheet version, no third-party sites, Notice wording unchanged. | Python 3 |
 | `check_pages.js` | Checks the pages in a real browser at laptop and phone size, and that the home page fits the window. Can save preview screenshots. | Node.js, Playwright |
 
 ## Before publishing any change

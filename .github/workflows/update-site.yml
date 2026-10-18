@@ -1,5 +1,6 @@
 # When an article is added or changed on main, make its share card, add any
-# missing search and sharing tags, and rebuild sitemap.xml. See
+# missing search and sharing tags, section and footnote links, and rebuild
+# sitemap.xml and the feed. See
 # .github/site-tools/update_site.py for what it does to each page.
 
 name: Update search and sharing details
@@ -40,7 +41,7 @@ jobs:
       - name: Commit any changes
         id: commit
         run: |
-          git add -A articles assets/share sitemap.xml
+          git add -A articles assets/share sitemap.xml feed.xml
           if git diff --cached --quiet; then
             echo "Nothing to update."
             echo "changed=false" >> "$GITHUB_OUTPUT"
