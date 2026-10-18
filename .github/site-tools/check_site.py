@@ -212,12 +212,31 @@ def check_links():
         problem("css/styles.css: refers to another website")
 
 
+def check_footer():
+    from datetime import datetime, timedelta, timezone
+    current = datetime.now(timezone(timedelta(hours=5, minutes=30))).year
+    years = {}
+    for page in sorted(glob.glob("*.html") + glob.glob("articles/*.html")):
+        m = re.search(r"<footer>(.*?)</footer>", read(page), re.S)
+        text = text_of(m.group(1)) if m else ""
+        y = re.fullmatch(r"© (\d{4}) APK Law, Advocates", text)
+        if not y:
+            problem(f"{page}: footer should read '© YEAR APK Law, Advocates' (found '{text}')")
+        else:
+            years.setdefault(y.group(1), []).append(page)
+    if len(years) > 1:
+        problem("footers show different years: " + ", ".join(f"{y} ({len(p)} pages)" for y, p in years.items()))
+    elif years and str(current) not in years:
+        note(f"the footer year is {next(iter(years))}; the automatic jobs update it to {current}")
+
+
 def main():
     root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     os.chdir(root)
     check_notice()
     check_articles()
     check_links()
+    check_footer()
     if notes:
         print(f"{len(notes)} note(s) for the owner (not errors):")
         for n_ in notes:

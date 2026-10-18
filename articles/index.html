@@ -33,7 +33,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/android-chrome-192x192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/assets/android-chrome-512x512.png">
 
-<link rel="stylesheet" href="/css/styles.css?v=10">
+<link rel="stylesheet" href="/css/styles.css?v=11">
 
 <style>
 
@@ -70,6 +70,11 @@
     letter-spacing: inherit;
     text-transform: inherit;
     transition: color 0.2s ease;
+  }
+
+  .filter-bar button:focus-visible {
+    outline: none;
+    color: #c8a46b;
   }
 
   .filter-bar button:hover {
@@ -117,16 +122,16 @@
 
 <div class="archive-list">
 
-  <div class="filter-bar">
+  <div class="filter-bar" role="group" aria-label="Filter the notes by subject">
     <span class="filter-label">Filter by</span>
     <span class="filter-separator">·</span>
-    <button class="active" data-filter-subject="all">All</button>
+    <button class="active" aria-pressed="true" data-filter-subject="all">All</button>
     <span class="filter-separator">·</span>
-    <button data-filter-subject="general-commercial">General Commercial</button>
+    <button aria-pressed="false" data-filter-subject="general-commercial">General Commercial</button>
     <span class="filter-separator">·</span>
-    <button data-filter-subject="corporate-ma">Corporate/M&A</button>
+    <button aria-pressed="false" data-filter-subject="corporate-ma">Corporate/M&A</button>
     <span class="filter-separator">·</span>
-    <button data-filter-subject="regulatory">Regulatory</button>
+    <button aria-pressed="false" data-filter-subject="regulatory">Regulatory</button>
   </div>
 
   <ul>
@@ -280,7 +285,7 @@
 
 
 <footer>
-Bengaluru, India | © APK 2026
+© 2026 APK Law, Advocates
 </footer>
 
 
@@ -293,8 +298,12 @@ Bengaluru, India | © APK 2026
     button.addEventListener('click', () => {
       const filterSubject = button.getAttribute('data-filter-subject');
 
-      buttons.forEach(b => b.classList.remove('active'));
+      buttons.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       button.classList.add('active');
+      button.setAttribute('aria-pressed', 'true');
 
       items.forEach(item => {
         const match = filterSubject === 'all' || item.getAttribute('data-subject') === filterSubject;

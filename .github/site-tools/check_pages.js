@@ -12,7 +12,8 @@ is needed.
 It opens every page at a laptop size and a phone size and reports anything
 that fails to load, any request to another website, any script error, any
 page wider than the screen, missing fonts or images, and articles without
-their Earlier/Later links. It checks that the archive filters add up, and
+their Earlier/Later links, and audits each page for accessibility (WCAG 2.1
+AA, using axe-core). It checks that the archive filters add up, and
 that the home page fits the browser window without scrolling at common
 laptop and monitor sizes.
 
@@ -96,6 +97,10 @@ async function main() {
   if (shotsDir) fs.mkdirSync(shotsDir, { recursive: true });
 
   const { chromium } = loadPlaywright();
+  let axeSource = null;
+  for (const c of [path.join(__dirname, "node_modules", "axe-core", "axe.min.js")]) {
+    if (fs.existsSync(c)) axeSource = fs.readFileSync(c, "utf8");
+  }
   const server = await serve();
   const base = `http://127.0.0.1:${server.address().port}`;
   const browser = await launch(chromium);
@@ -138,6 +143,16 @@ async function main() {
       if (r.fonts === 0) problems.push(`${label} ${p}: the site's fonts did not load`);
       if (r.brokenImages.length) problems.push(`${label} ${p}: images not loading: ${r.brokenImages.join(", ")}`);
       if (r.article && !r.nav) problems.push(`${label} ${p}: Earlier/Later links missing`);
+
+      // accessibility audit (WCAG 2.1 A and AA), once per page at laptop size
+      if (axeSource && label === "laptop") {
+        await page.addScriptTag({ content: axeSource });
+        const violations = await page.evaluate(async () => {
+          const res = await axe.run(document, { runOnly: ["wcag2a", "wcag2aa", "wcag21aa"] });
+          return res.violations.map(v => `${v.help} (${v.nodes.length}x, e.g. ${v.nodes[0].target.join(" ")})`);
+        });
+        violations.forEach(v => problems.push(`${p}: accessibility: ${v}`));
+      }
     }
 
     if (label === "laptop") {
@@ -224,6 +239,7 @@ async function main() {
   server.close();
 
   const unique = [...new Set(problems)];
+  if (!axeSource) notes.push("accessibility audit skipped: run npm install in .github/site-tools");
   if (notes.length) { console.log(`${notes.length} note(s):`); notes.forEach(n => console.log(" -", n)); }
   if (unique.length) {
     console.log(`${unique.length} problem(s) found:`);

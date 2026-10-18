@@ -90,6 +90,16 @@ main {
   padding: 0 20px;
 }
 
+/* keyboard focus: a link or button reached with Tab turns pale gold, as on
+   hover, rather than showing a box */
+
+a:focus-visible,
+button:focus-visible,
+a:focus-visible .art-year {
+  outline: none;
+  color: #c8a46b;
+}
+
 /* ---------- Header ---------- */
 
 header {
@@ -254,7 +264,7 @@ footer {
   font-size: 1rem;
   letter-spacing: 1px;
 
-  color: #777;
+  color: #666;
   text-decoration: none;
 }
 
@@ -342,7 +352,7 @@ footer {
 
 .art-year {
   font-size: 0.875rem;
-  color: #888;
+  color: #666;
   transition: color 0.2s ease;
 }
 
@@ -364,7 +374,7 @@ footer {
 .article-date {
   text-align: center;
   font-size: 15px;
-  color: #777;
+  color: #666;
   margin: 0 auto 22px auto;
 }
 
