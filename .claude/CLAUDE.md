@@ -244,12 +244,13 @@ not installed, follow the README's one-time setup; don't skip the check.
   section (`article-notes`). Don't add `<style>` blocks to individual pages.
 - **Paragraphs are justified, without automatic hyphenation**, on every screen
   size, phones included. The owner chose this.
-- **Colours for text** must stay readable on the paper background (at least
-  4.5:1 contrast): body text `#2b2b2b`, secondary text `#666`, links and hover
-  states the deeper gold `#7d6318`. The light gold `#c8a46b` is for decorative
-  lines and borders only, not for text.
-- **Keyboard focus** shows a deep-gold outline on links and buttons
-  (`:focus-visible`); keep it.
+- **Colours for text:** body text `#2b2b2b` and secondary text (back links,
+  dates, years, footer) `#666`, which keep at least 4.5:1 contrast on the paper.
+- **Pale gold `#c8a46b` is the site's accent**, for the thin rules, borders,
+  and the colour links turn on hover. The owner chose it deliberately ("it
+  doesn't shine, but it has value"); don't replace it with a deeper gold.
+- **Keyboard focus** turns a link or button pale gold, as on hover, with no
+  outline box. The owner doesn't want boxes around focused items.
 - **The footer** reads "© YEAR APK Law, Advocates" on every page; the
   automatic jobs keep the year current.
 - **Article reading aids** (made by the automatic job): a "§" after each heading

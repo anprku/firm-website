@@ -90,13 +90,14 @@ main {
   padding: 0 20px;
 }
 
-/* keyboard focus: a clear outline on links and buttons reached with Tab */
+/* keyboard focus: a link or button reached with Tab turns pale gold, as on
+   hover, rather than showing a box */
 
 a:focus-visible,
-button:focus-visible {
-  outline: 2px solid #7d6318;
-  outline-offset: 3px;
-  border-radius: 2px;
+button:focus-visible,
+a:focus-visible .art-year {
+  outline: none;
+  color: #c8a46b;
 }
 
 /* ---------- Header ---------- */
@@ -195,7 +196,7 @@ header {
 }
 
 .section-block a:hover {
-  color: #7d6318;
+  color: #c8a46b;
   border-bottom: 1px solid #c8a46b;
 }
 
@@ -233,7 +234,7 @@ header {
 /* hover – text turns gold */
 
 .btn-browse:hover {
-  color: #7d6318;
+  color: #c8a46b;
 }
 
 /* ---------- Footer ---------- */
@@ -268,7 +269,7 @@ footer {
 }
 
 .back-link:hover {
-  color: #7d6318;
+  color: #c8a46b;
 }
 
 /* archive heading */
@@ -331,13 +332,13 @@ footer {
 }
 
 .archive-list a:hover {
-  color: #7d6318;
+  color: #c8a46b;
 }
 
 /* year follows title colour on hover */
 
 .archive-list a:hover .art-year {
-  color: #7d6318;
+  color: #c8a46b;
 }
 
 /* article title */
@@ -763,7 +764,7 @@ footer p {
 }
 
 .article-nav a:hover {
-  color: #7d6318;
+  color: #c8a46b;
 }
 
 .article-nav .article-nav-later {
