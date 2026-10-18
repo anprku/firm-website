@@ -1,0 +1,131 @@
+# Once a month (and whenever run by hand from the Actions tab): keep the
+# footer year current, then check the site's files, its pages in a browser,
+# and the live site at apklaw.in. If anything fails, open an issue in this
+# repository (GitHub emails the owner); when everything passes again, close it.
+# See .github/site-tools/README.md for what each check covers.
+
+name: Monthly site check
+
+on:
+  schedule:
+    - cron: "15 3 1 * *"  # the 1st of each month, 08:45 India time
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pages: write
+
+concurrency:
+  group: update-site
+  cancel-in-progress: false
+
+jobs:
+  check:
+    # Pinned so the browser tools' system packages are supported.
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0  # full history, for the sitemap's last-changed dates
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Install the checking tools
+        run: |
+          pip install pillow==12.3.0
+          cd .github/site-tools
+          npm ci --no-audit --no-fund
+          npx playwright install --with-deps chromium
+
+      - name: Keep the footer year and site details current
+        id: upkeep
+        run: |
+          python3 .github/site-tools/update_site.py
+          git add -A articles assets/share sitemap.xml feed.xml *.html
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Monthly upkeep: footer year and site details"
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Rebuild the site
+        if: steps.upkeep.outputs.changed == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api -X POST "repos/${{ github.repository }}/pages/builds"
+          sleep 120  # let the live site catch up before checking it
+
+      - name: Check the files
+        id: files
+        continue-on-error: true
+        run: python3 .github/site-tools/check_site.py 2>&1 | tee files.txt; exit ${PIPESTATUS[0]}
+
+      - name: Check the pages in a browser
+        id: pages
+        continue-on-error: true
+        run: node .github/site-tools/check_pages.js 2>&1 | tee pages.txt; exit ${PIPESTATUS[0]}
+
+      - name: Check the live site
+        id: live
+        continue-on-error: true
+        run: python3 .github/site-tools/check_live.py 2>&1 | tee live.txt; exit ${PIPESTATUS[0]}
+
+      - name: Report
+        env:
+          GH_TOKEN: ${{ github.token }}
+          FILES: ${{ steps.files.outcome }}
+          PAGES: ${{ steps.pages.outcome }}
+          LIVE: ${{ steps.live.outcome }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          OWNER: ${{ github.repository_owner }}
+        run: |
+          gh label create site-check --color B8960C \
+            --description "Found by the monthly site check" 2>/dev/null || true
+          open_issue=$(gh issue list --label site-check --state open --json number --jq '.[0].number // empty')
+
+          if [ "$FILES" = "success" ] && [ "$PAGES" = "success" ] && [ "$LIVE" = "success" ]; then
+            echo "All checks passed."
+            if [ -n "$open_issue" ]; then
+              gh issue close "$open_issue" --comment "The monthly check passes again ([run]($RUN_URL)). Closing."
+            fi
+            exit 0
+          fi
+
+          {
+            echo "@$OWNER the monthly check of apklaw.in found something that needs attention."
+            echo
+            echo "| Check | Result |"
+            echo "|---|---|"
+            echo "| Site files | $FILES |"
+            echo "| Pages in a browser | $PAGES |"
+            echo "| Live site (apklaw.in) | $LIVE |"
+            echo
+            for f in files.txt pages.txt live.txt; do
+              if [ -s "$f" ]; then
+                echo '```'
+                tail -n 40 "$f"
+                echo '```'
+              fi
+            done
+            echo
+            echo "Details: [workflow run]($RUN_URL). To fix it, open a Claude Code session on this"
+            echo "repository and ask it to look at this issue."
+          } > report.md
+
+          if [ -n "$open_issue" ]; then
+            gh issue comment "$open_issue" --body-file report.md
+          else
+            gh issue create --title "Monthly site check found a problem" \
+              --label site-check --body-file report.md
+          fi
+          exit 1

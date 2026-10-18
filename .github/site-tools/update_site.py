@@ -13,7 +13,8 @@ Tags already present are left exactly as they are. It also removes any
 Google Fonts link (the fonts are served from this site) and points the
 stylesheet link at the version the home page uses. It then rewrites
 sitemap.xml from the home page, the archive and every article, and feed.xml
-(the RSS feed) from the archive list.
+(the RSS feed) from the archive list, and keeps the footer year current on
+every page.
 
 An article needs only its title in <h1 class="article-title"> and its date
 ("Month YYYY") in <div class="article-date">.
@@ -400,10 +401,26 @@ def write_feed():
         print("updated feed.xml")
 
 
+# ---------- Footer year ----------
+
+def update_footer_year():
+    """Keep "© YEAR APK Law, Advocates" in every page's footer at the current
+    year (India time). Runs with the article job and the monthly check."""
+    from datetime import datetime, timedelta, timezone
+    year = datetime.now(timezone(timedelta(hours=5, minutes=30))).year
+    for path in sorted(glob.glob("*.html") + glob.glob("articles/*.html")):
+        s = open(path, encoding="utf-8").read()
+        new = re.sub(r"© \d{4} APK Law, Advocates", f"© {year} APK Law, Advocates", s)
+        if new != s:
+            open(path, "w", encoding="utf-8").write(new)
+            print(f"updated footer year in {path}")
+
+
 if __name__ == "__main__":
     articles = sorted(p for p in glob.glob("articles/*.html")
                       if os.path.basename(p) != "index.html")
     for p in articles:
         update_article(p)
+    update_footer_year()
     write_sitemap(articles)
     write_feed()

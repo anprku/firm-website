@@ -102,7 +102,7 @@ First paragraph.
 
 
 <footer>
-Bengaluru, India | © APK 2026
+© 2026 APK Law, Advocates
 </footer>
 
 </body>
@@ -142,7 +142,8 @@ Formatting conventions, as used in the existing articles:
 
 - Escape `&` as `&amp;` in the text, and `<` and `>` as `&lt;` and `&gt;`.
   Keep the author's quotation marks and dashes as given.
-- The footer year stays as in the other pages unless the owner says otherwise.
+- The footer reads "© YEAR APK Law, Advocates" with the same year as the other
+  pages. The automatic jobs keep the year current on every page.
 
 See `articles/director-liability-labour-codes-india.html` for an article with
 footnotes and tables.
@@ -217,6 +218,16 @@ node .github/site-tools/check_pages.js       # real browser: needs Node + Playwr
   page fits the window at eight common laptop and monitor sizes. Add
   `--shots preview --page /path.html` to save screenshots for the owner.
 
+A third tool, `python3 .github/site-tools/check_live.py`, checks the live site
+at apklaw.in (pages answer over https, certificate, latest version live). It
+needs internet access to apklaw.in, which some cloud sessions don't have.
+
+**Monthly self-check:** `.github/workflows/monthly-check.yml` runs all three on
+the 1st of each month and keeps the footer year current. If something fails it
+opens a GitHub issue labelled `site-check` (GitHub emails the owner) and closes
+it once everything passes again. If the owner asks you to look at such an
+issue, read it and the linked workflow run, fix the cause, and run the checks.
+
 Run both before every pull request and report what they said. If Playwright is
 not installed, follow the README's one-time setup; don't skip the check.
 
@@ -233,6 +244,14 @@ not installed, follow the README's one-time setup; don't skip the check.
   section (`article-notes`). Don't add `<style>` blocks to individual pages.
 - **Paragraphs are justified, without automatic hyphenation**, on every screen
   size, phones included. The owner chose this.
+- **Colours for text** must stay readable on the paper background (at least
+  4.5:1 contrast): body text `#2b2b2b`, secondary text `#666`, links and hover
+  states the deeper gold `#7d6318`. The light gold `#c8a46b` is for decorative
+  lines and borders only, not for text.
+- **Keyboard focus** shows a deep-gold outline on links and buttons
+  (`:focus-visible`); keep it.
+- **The footer** reads "© YEAR APK Law, Advocates" on every page; the
+  automatic jobs keep the year current.
 - **Article reading aids** (made by the automatic job): a "§" after each heading
   links to that section; it is hidden until the heading is pointed at on a
   computer and faint on phones, and clicking it also copies the link.

@@ -20,7 +20,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/android-chrome-192x192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/assets/android-chrome-512x512.png">
 
-<link rel="stylesheet" href="/css/styles.css?v=10">
+<link rel="stylesheet" href="/css/styles.css?v=11">
 
 <style>
 
@@ -49,6 +49,20 @@
     height: 1px;
     background: linear-gradient(to right, transparent, #c8a46b, transparent);
     margin: 0.5rem auto 1.2rem auto;
+  }
+
+  .error-links {
+    margin: 0;
+  }
+
+  .error-links .back-link {
+    display: inline;
+    margin: 0;
+  }
+
+  .error-links-sep {
+    margin: 0 0.6rem;
+    color: #666;
   }
 
   .error-message {
@@ -80,13 +94,17 @@
     <p class="error-code">404</p>
     <div class="error-divider"></div>
     <p class="error-message">The page you are looking for does not exist or may have been moved.</p>
-    <a class="back-link" href="/">← APK Law</a>
+    <p class="error-links">
+      <a class="back-link" href="/">← APK Law</a>
+      <span class="error-links-sep" aria-hidden="true">·</span>
+      <a class="back-link" href="/articles/">Notes and Reflections</a>
+    </p>
   </div>
 
 </main>
 
 <footer>
-<p>Bengaluru, India | © APK 2026</p>
+<p>© 2026 APK Law, Advocates</p>
 </footer>
 
 </body>

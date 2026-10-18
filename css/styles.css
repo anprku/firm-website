@@ -90,6 +90,15 @@ main {
   padding: 0 20px;
 }
 
+/* keyboard focus: a clear outline on links and buttons reached with Tab */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #7d6318;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 /* ---------- Header ---------- */
 
 header {
@@ -186,7 +195,7 @@ header {
 }
 
 .section-block a:hover {
-  color: #c8a46b;
+  color: #7d6318;
   border-bottom: 1px solid #c8a46b;
 }
 
@@ -224,7 +233,7 @@ header {
 /* hover – text turns gold */
 
 .btn-browse:hover {
-  color: #c8a46b;
+  color: #7d6318;
 }
 
 /* ---------- Footer ---------- */
@@ -254,12 +263,12 @@ footer {
   font-size: 1rem;
   letter-spacing: 1px;
 
-  color: #777;
+  color: #666;
   text-decoration: none;
 }
 
 .back-link:hover {
-  color: #c8a46b;
+  color: #7d6318;
 }
 
 /* archive heading */
@@ -322,13 +331,13 @@ footer {
 }
 
 .archive-list a:hover {
-  color: #c8a46b;
+  color: #7d6318;
 }
 
 /* year follows title colour on hover */
 
 .archive-list a:hover .art-year {
-  color: #c8a46b;
+  color: #7d6318;
 }
 
 /* article title */
@@ -342,7 +351,7 @@ footer {
 
 .art-year {
   font-size: 0.875rem;
-  color: #888;
+  color: #666;
   transition: color 0.2s ease;
 }
 
@@ -364,7 +373,7 @@ footer {
 .article-date {
   text-align: center;
   font-size: 15px;
-  color: #777;
+  color: #666;
   margin: 0 auto 22px auto;
 }
 
@@ -754,7 +763,7 @@ footer p {
 }
 
 .article-nav a:hover {
-  color: #c8a46b;
+  color: #7d6318;
 }
 
 .article-nav .article-nav-later {
