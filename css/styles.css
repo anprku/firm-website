@@ -516,6 +516,41 @@ blockquote {
   margin-bottom: 0.5rem;
 }
 
+/* ---------- Home page on larger screens ---------- */
+
+/* footer sits at the foot of the window rather than mid-screen */
+
+body.home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.home main {
+  flex: 1 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* a slightly narrower column with larger, more open text */
+
+@media (min-width: 700px) {
+  body.home main {
+    max-width: 680px;
+    padding-top: 1.2rem;
+  }
+
+  body.home .section-block {
+    margin-top: 1.8rem;
+    margin-bottom: 1.8rem;
+  }
+
+  body.home .section-block p {
+    font-size: 1.0625rem;
+    line-height: 1.5;
+  }
+}
+
 /* ---------- Small screens ---------- */
 
 /* footer text sits flush whether or not it is wrapped in <p> */
