@@ -146,11 +146,22 @@ header {
 /* the city beneath the name, as on a letterhead */
 
 .site-place {
-  margin: 0.45rem 0 0.1rem 0;
+  margin: 0.05rem 0 0 0;
   font-family: "EB Garamond", serif;
   font-size: 0.95rem;
+  line-height: 1.1;
   letter-spacing: 0.06em;
   color: #666;
+}
+
+/* when the city sits beneath the name, keep the block compact */
+
+.site-title:has(+ .site-place) {
+  margin-bottom: 0.15rem;
+}
+
+header:has(.site-place) {
+  padding-bottom: 0.3rem;
 }
 
 /* ---------- Sections ---------- */
@@ -594,7 +605,11 @@ body.home .home-col-right .section-block {
 
   body.home .site-place {
     font-size: calc(var(--fs) * 0.92);
-    margin: calc(var(--fs) * 0.4) 0 calc(var(--fs) * 0.05) 0;
+    margin: calc(var(--fs) * 0.05) 0 0 0;
+  }
+
+  body.home header {
+    padding-bottom: calc(var(--fs) * 0.25);
   }
 
   body.home .logo-wrap img {
