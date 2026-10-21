@@ -236,6 +236,10 @@ not installed, follow the README's one-time setup; don't skip the check.
   change to `css/styles.css`, raise N by one on all pages (home, 404, archive and
   every article), so visitors' browsers fetch the new file. The automatic job
   also brings articles in line with the version used by `index.html`.
+- **Earlier/Later links script.** Articles load `js/article-nav.js?v=N`. After
+  any change to that file, raise `NAV_VERSION` in `update_site.py` and run it;
+  it updates the version on every article. The script reads the archive list
+  with `cache: 'no-cache'` so a just-published article finds its neighbours.
 - **Shared styles live in `css/styles.css`**, including those for article
   tables (`article-table`, `table-caption`), footnote markers and the Notes
   section (`article-notes`). Don't add `<style>` blocks to individual pages.

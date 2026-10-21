@@ -28,6 +28,7 @@ import subprocess
 from PIL import Image, ImageDraw, ImageFont
 
 SITE = "https://apklaw.in"
+NAV_VERSION = 2
 HERE = os.path.dirname(os.path.abspath(__file__))
 FONTS = os.path.join(HERE, "fonts")
 
@@ -242,8 +243,13 @@ def update_article(path):
     if "application/rss+xml" not in s:
         s = s.replace('<link rel="canonical"', feed_link + '\n<link rel="canonical"', 1)
 
-    if "/js/article-nav.js" not in s and "</body>" in s:
-        s = s.replace("</body>", '<script src="/js/article-nav.js" defer></script>\n\n</body>', 1)
+    # The Earlier/Later links script, at its current version (raise NAV_VERSION
+    # whenever js/article-nav.js changes, so browsers fetch the new file).
+    nav = f'<script src="/js/article-nav.js?v={NAV_VERSION}" defer></script>'
+    if "/js/article-nav.js" in s:
+        s = re.sub(r'<script src="/js/article-nav\.js(\?v=\d+)?" defer></script>', nav, s)
+    elif "</body>" in s:
+        s = s.replace("</body>", nav + "\n\n</body>", 1)
 
     if s != original:
         open(path, "w", encoding="utf-8").write(s)
