@@ -7,7 +7,7 @@
 
   var here = location.pathname.split('/').pop() || '';
 
-  fetch('/articles/index.html')
+  fetch('/articles/index.html', { cache: 'no-cache' })  // always the latest list, so a just-published article finds itself
     .then(function (r) { return r.ok ? r.text() : Promise.reject(); })
     .then(function (text) {
       var doc = new DOMParser().parseFromString(text, 'text/html');
