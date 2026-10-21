@@ -258,10 +258,16 @@ not installed, follow the README's one-time setup; don't skip the check.
   stay plain text. The owner tried "§" section links and linked footnotes and
   had them removed as out of keeping with the site; don't add them, or
   anything like them, again.
-- **The name block** on the home page and the 404 page is the tree logo,
-  "APK Law, Advocates" with its gold rule, and "Bengaluru" beneath in ordinary
-  lettering (`.site-place`, grey), as on a letterhead. The owner chose ordinary
-  lettering over capitals.
+- **The name block** is the tree logo, "APK Law, Advocates" with its gold
+  rule, and "Bengaluru" beneath in ordinary lettering (`.site-place`, grey), as
+  on a letterhead. The owner chose ordinary lettering over capitals, and close
+  spacing around "Bengaluru". It is the same everywhere the logo and name
+  appear together: the home page, the 404 page and every share card (each
+  article's card and `assets/share/default.jpg`, all drawn by `make_card` in
+  `update_site.py`). Any change to the name block is made in all of these
+  places in the same pull request, without the owner having to ask for each.
+  After changing `make_card`, raise `CARD_VERSION` in `update_site.py` and run
+  it; it makes every card again, the default card included.
 - **The home page** (`index.html`, `body class="home"`):
   - Phones and small tablets (under 900px): one column, in the order Notice,
     Notes and Reflections, The Practice.

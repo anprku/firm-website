@@ -7,7 +7,9 @@ For every page in articles/ (other than index.html) it:
     (delete a card to have it made again, e.g. after changing a title);
   - adds any missing tags: description, Open Graph, share image, canonical
     link, feed link and schema.org Article data.
-Tags already present are left exactly as they are. It also removes any
+Tags already present are left exactly as they are. When CARD_VERSION below
+is raised (after a change to the card's design, such as the name block), every
+card, including the site's own card assets/share/default.jpg, is made again. It also removes any
 Google Fonts link (the fonts are served from this site) and points the
 stylesheet link at the version the home page uses. It then rewrites
 sitemap.xml from the home page, the archive and every article, and feed.xml
@@ -29,6 +31,9 @@ from PIL import Image, ImageDraw, ImageFont
 
 SITE = "https://apklaw.in"
 NAV_VERSION = 2
+# Raise by one after changing make_card, so every share card is made again.
+CARD_VERSION = 2
+CARD_STAMP = "assets/share/.card-version"
 HERE = os.path.dirname(os.path.abspath(__file__))
 FONTS = os.path.join(HERE, "fonts")
 
@@ -81,7 +86,8 @@ def wrap(d, text, f, max_w):
 
 
 def make_card(title, subtitle, out):
-    """Logo, firm name, gold rule, title and subtitle as one centred block."""
+    """The name block as on the home page (logo, firm name, gold rule,
+    "Bengaluru"), then the title and subtitle, as one centred block."""
     im = paper()
     d = ImageDraw.Draw(im)
 
@@ -92,6 +98,7 @@ def make_card(title, subtitle, out):
 
     f_name = font("PlayfairDisplay-Bold.ttf", 28)
     f_sub = font("EBGaramond-Regular.ttf", 26)
+    f_place = font("EBGaramond-Regular.ttf", 24)
     size = 50
     while True:
         f_title = font("PlayfairDisplay-Regular.ttf", size)
@@ -108,12 +115,13 @@ def make_card(title, subtitle, out):
         b = box(f)
         return b[3] - b[1]
 
-    gap_logo, gap_rule, gap_title, gap_sub = 38, 18, 44, 40
+    gap_logo, gap_rule, gap_place, gap_title, gap_sub = 38, 18, 14, 42, 40
     name_h = height(f_name)
+    place_h = height(f_place)
     title_h = line_h * (len(lines) - 1) + height(f_title)
-    sub_h = height(f_sub)
-    total = (logo.height + gap_logo + name_h + gap_rule + 1 + gap_title
-             + title_h + gap_sub + sub_h)
+    sub_h = height(f_sub) if subtitle else 0
+    total = (logo.height + gap_logo + name_h + gap_rule + 1 + gap_place + place_h
+             + gap_title + title_h + (gap_sub + sub_h if subtitle else 0))
     y = (H - total) // 2
 
     im.paste(logo, ((W - lw) // 2, y), logo)
@@ -128,14 +136,18 @@ def make_card(title, subtitle, out):
     y += name_h + gap_rule
 
     gold_rule(d, W // 2, y)
-    y += 1 + gap_title
+    y += 1 + gap_place
+
+    d.text((W / 2, y - box(f_place)[1]), "Bengaluru", font=f_place, fill=MUTED, anchor="ms")
+    y += place_h + gap_title
 
     for i, line in enumerate(lines):
         d.text((W / 2, y - box(f_title)[1] + i * line_h), line,
                font=f_title, fill=INK, anchor="ms")
     y += title_h + gap_sub
 
-    d.text((W / 2, y - box(f_sub)[1]), subtitle, font=f_sub, fill=MUTED, anchor="ms")
+    if subtitle:
+        d.text((W / 2, y - box(f_sub)[1]), subtitle, font=f_sub, fill=MUTED, anchor="ms")
     im.save(out, quality=84, optimize=True, progressive=True)
 
 
@@ -176,7 +188,7 @@ def update_article(path):
     published = f"{d.group(2)}-{MONTHS[d.group(1)]:02d}"
 
     card = f"assets/share/{slug}.jpg"
-    if not os.path.exists(card):
+    if not os.path.exists(card) or remake_cards:
         os.makedirs("assets/share", exist_ok=True)
         make_card(title, "Notes and Reflections  ·  " + month_year, card)
         print(f"made {card}")
@@ -348,7 +360,19 @@ def update_footer_year():
             print(f"updated footer year in {path}")
 
 
+def card_version():
+    try:
+        return int(open(CARD_STAMP).read().strip())
+    except (OSError, ValueError):
+        return 0
+
+
 if __name__ == "__main__":
+    remake_cards = card_version() != CARD_VERSION
+    if remake_cards or not os.path.exists("assets/share/default.jpg"):
+        os.makedirs("assets/share", exist_ok=True)
+        make_card("Notes and Reflections", "", "assets/share/default.jpg")
+        print("made assets/share/default.jpg")
     articles = sorted(p for p in glob.glob("articles/*.html")
                       if os.path.basename(p) != "index.html")
     for p in articles:
@@ -356,3 +380,5 @@ if __name__ == "__main__":
     update_footer_year()
     write_sitemap(articles)
     write_feed()
+    if remake_cards:
+        open(CARD_STAMP, "w").write(f"{CARD_VERSION}\n")
