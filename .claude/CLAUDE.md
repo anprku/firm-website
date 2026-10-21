@@ -258,6 +258,10 @@ not installed, follow the README's one-time setup; don't skip the check.
   stay plain text. The owner tried "§" section links and linked footnotes and
   had them removed as out of keeping with the site; don't add them, or
   anything like them, again.
+- **The name block** on the home page and the 404 page is the tree logo,
+  "APK Law, Advocates" with its gold rule, and "Bengaluru" beneath in ordinary
+  lettering (`.site-place`, grey), as on a letterhead. The owner chose ordinary
+  lettering over capitals.
 - **The home page** (`index.html`, `body class="home"`):
   - Phones and small tablets (under 900px): one column, in the order Notice,
     Notes and Reflections, The Practice.
@@ -269,7 +273,9 @@ not installed, follow the README's one-time setup; don't skip the check.
     logo, title, header and footer spacing, and the column width
     (`65.5 × --fs`). Because it follows the window's height as well as its
     width, the whole page, footer included, fits the browser window without
-    scrolling. Don't replace these with fixed sizes.
+    scrolling. Don't replace these with fixed sizes. On short windows (640px
+    high or less) the space around the columns is trimmed slightly so the
+    page still fits once the text reaches its 14px minimum.
   - The width ratio 65.5 was chosen because ratios from 64.5 to 67 leave no
     justified line with stretched word gaps at any common size. If the home page
     text changes, run `check_pages.js`; if it reports wide gaps or scrolling,

@@ -143,6 +143,16 @@ header {
   margin: 0.4rem auto 0 auto;
 }
 
+/* the city beneath the name, as on a letterhead */
+
+.site-place {
+  margin: 0.45rem 0 0.1rem 0;
+  font-family: "EB Garamond", serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  color: #666;
+}
+
 /* ---------- Sections ---------- */
 
 .section-block {
@@ -578,8 +588,13 @@ body.home .home-col-right .section-block {
   }
 
   body.home header {
-    padding-top: calc(var(--fs) * 0.9);
+    padding-top: calc(var(--fs) * 0.75);
     padding-bottom: calc(var(--fs) * 0.35);
+  }
+
+  body.home .site-place {
+    font-size: calc(var(--fs) * 0.92);
+    margin: calc(var(--fs) * 0.4) 0 calc(var(--fs) * 0.05) 0;
   }
 
   body.home .logo-wrap img {
@@ -650,6 +665,16 @@ body.home .home-col-right .section-block {
     font-size: calc(var(--fs) * 0.82);
     margin-top: 0;
     padding: calc(var(--fs) * 0.8) 0;
+  }
+}
+
+/* short laptop windows: slightly less space around the columns, so the
+   page still fits without scrolling once the text is at its 14px minimum */
+
+@media (min-width: 900px) and (max-height: 640px) {
+  body.home main.home-grid {
+    padding-top: calc(var(--fs) * 1.1);
+    padding-bottom: calc(var(--fs) * 1.1);
   }
 }
 
