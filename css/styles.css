@@ -668,10 +668,23 @@ footer p {
     padding-left: 0.75rem;
   }
 
+  /* a wide table scrolls sideways within the article on phones, so words
+     stay whole and the page itself never scrolls sideways */
+
+  .article-table {
+    display: block;
+    overflow-x: auto;
+    font-size: 0.8125rem;
+  }
+
   .article-table th,
   .article-table td {
     padding-left: 0.35rem;
     padding-right: 0.35rem;
+  }
+
+  .article-table th {
+    font-size: 0.75rem;
   }
 }
 
