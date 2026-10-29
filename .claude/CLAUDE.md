@@ -246,7 +246,9 @@ not installed, follow the README's one-time setup; don't skip the check.
 - **Paragraphs are justified, without automatic hyphenation**, on every screen
   size, phones included. The owner chose this.
 - **Colours for text:** body text `#2b2b2b` and secondary text (back links,
-  dates, years, footer) `#666`, which keep at least 4.5:1 contrast on the paper.
+  dates, years, footer, "Bengaluru") `#5c5c5c`, which keep at least 4.5:1
+  contrast on the paper, including where it is shaded near the edges. The
+  owner chose `#5c5c5c` over the earlier `#666` once the shading was added.
 - **The background** is the paper texture (`assets/paper-grain.jpg`), shaded
   very slightly darker towards the edges of the window (`body::before` in
   `css/styles.css`), on every page. The owner chose this over a gold border

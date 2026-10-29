@@ -162,7 +162,7 @@ header {
   font-size: 0.95rem;
   line-height: 1.1;
   letter-spacing: 0.06em;
-  color: #666;
+  color: #5c5c5c;
 }
 
 /* when the city sits beneath the name, keep the block compact */
@@ -277,7 +277,7 @@ footer {
   padding: 1rem 0;
   border-top: 1px solid #ded8cc;
   font-size: 0.875rem;
-  color: #666;
+  color: #5c5c5c;
 }
 
 /* ================================================= */
@@ -296,7 +296,7 @@ footer {
   font-size: 1rem;
   letter-spacing: 1px;
 
-  color: #666;
+  color: #5c5c5c;
   text-decoration: none;
 }
 
@@ -384,7 +384,7 @@ footer {
 
 .art-year {
   font-size: 0.875rem;
-  color: #666;
+  color: #5c5c5c;
   transition: color 0.2s ease;
 }
 
@@ -406,7 +406,7 @@ footer {
 .article-date {
   text-align: center;
   font-size: 15px;
-  color: #666;
+  color: #5c5c5c;
   margin: 0 auto 22px auto;
 }
 
@@ -464,7 +464,7 @@ blockquote {
 
   font-size: 0.8125rem;
   font-style: italic;
-  color: #666;
+  color: #5c5c5c;
   line-height: 1.5;
 }
 
