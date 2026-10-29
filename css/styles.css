@@ -82,6 +82,17 @@ body {
   line-height: 1.25;
 }
 
+/* the paper darkens softly towards the edges of the window */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 50%, rgba(110, 85, 50, 0.16) 100%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 /* reading column */
 
 main {

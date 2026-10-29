@@ -247,6 +247,11 @@ not installed, follow the README's one-time setup; don't skip the check.
   size, phones included. The owner chose this.
 - **Colours for text:** body text `#2b2b2b` and secondary text (back links,
   dates, years, footer) `#666`, which keep at least 4.5:1 contrast on the paper.
+- **The background** is the paper texture (`assets/paper-grain.jpg`), shaded
+  very slightly darker towards the edges of the window (`body::before` in
+  `css/styles.css`), on every page. The owner chose this over a gold border
+  and a faint tree watermark; don't add borders, watermarks, photographs or
+  patterns.
 - **Pale gold `#c8a46b` is the site's accent**, for the thin rules, borders,
   and the colour links turn on hover. The owner chose it deliberately ("it
   doesn't shine, but it has value"); don't replace it with a deeper gold.
