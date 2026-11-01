@@ -261,6 +261,13 @@ not installed, follow the README's one-time setup; don't skip the check.
   outline box. The owner doesn't want boxes around focused items.
 - **The footer** reads "© YEAR APK Law, Advocates" on every page; the
   automatic jobs keep the year current.
+- **Printing.** An article prints (or saves as PDF) on white A4 with the name
+  block at the top (tree, "APK Law, Advocates", gold rule, "Bengaluru"),
+  black text, tables that don't split a row across pages, and a footer
+  ending "· apklaw.in". The paper, shading, back link and Earlier/Later
+  links don't print. This lives in the `@media print` section of
+  `css/styles.css`; keep its name block in step with the name block rule
+  below.
 - **No section links or clickable footnotes.** Headings and footnote numbers
   stay plain text. The owner tried "§" section links and linked footnotes and
   had them removed as out of keeping with the site; don't add them, or
