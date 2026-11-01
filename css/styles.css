@@ -793,25 +793,76 @@ footer p {
 
 /* ---------- Print ---------- */
 
+@page {
+  size: A4;
+  margin: 20mm 20mm 18mm 20mm;
+}
+
 @media print {
   body {
     background: none;
     color: #000;
   }
 
+  /* no paper shading on the printed page */
+
+  body::before {
+    display: none;
+  }
+
   .back-link,
   .filter-bar,
-  .article-nav,
-  footer {
+  .article-nav {
     display: none;
   }
 
   header {
     border-bottom: none;
+    padding-top: 0;
+  }
+
+  /* an article prints with the name block at the top, as on a letterhead:
+     the tree, "APK Law, Advocates", the gold rule and "Bengaluru" */
+
+  header:has(~ main.article-body) .back-link {
+    display: block;
+    margin: 0 0 9mm 0;
+    font-size: 0;
+    color: #000;
+  }
+
+  header:has(~ main.article-body) .back-link::before {
+    content: "APK Law, Advocates";
+    display: block;
+    padding-top: 15mm;
+    background: url("../assets/logo.png") center top / 20mm auto no-repeat;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-family: "Playfair Display", serif;
+    font-size: 12pt;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+
+  header:has(~ main.article-body) .back-link::after {
+    content: "Bengaluru";
+    display: block;
+    width: 22mm;
+    margin: 1.2mm auto 0 auto;
+    padding-top: 1.2mm;
+    border-top: 0.4pt solid #c8a46b;
+    font-family: "EB Garamond", serif;
+    font-size: 9.5pt;
+    letter-spacing: 0.06em;
+    color: #444;
   }
 
   .article-title {
     margin-top: 0;
+  }
+
+  .article-date {
+    color: #444;
   }
 
   .article-body {
@@ -821,14 +872,32 @@ footer p {
     font-size: 11.5pt;
   }
 
-  .article-body h2 {
+  .article-body h2,
+  .table-caption {
     break-after: avoid;
   }
 
   .article-body p,
-  blockquote {
+  blockquote,
+  .article-notes li {
     orphans: 3;
     widows: 3;
+  }
+
+  /* tables: rows are not split across pages, and the heading row repeats */
+
+  .article-table {
+    display: table;
+    overflow: visible;
+  }
+
+  .article-table thead {
+    display: table-header-group;
+  }
+
+  .article-table tr,
+  blockquote {
+    break-inside: avoid;
   }
 
   .article-disclaimer {
@@ -836,7 +905,22 @@ footer p {
     color: #333;
   }
 
+  /* the footer names the site, so a printed copy shows where it came from */
+
+  footer {
+    margin-top: 10mm;
+    border-top: 0.4pt solid #c8a46b;
+    font-size: 9pt;
+    color: #444;
+    break-inside: avoid;
+  }
+
+  footer::after {
+    content: "  ·  apklaw.in";
+  }
+
   a {
     color: inherit;
+    text-decoration: none;
   }
 }
