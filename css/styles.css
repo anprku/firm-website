@@ -82,15 +82,19 @@ body {
   line-height: 1.25;
 }
 
-/* the paper darkens softly towards the edges of the window */
+/* the paper darkens softly towards the edges of the window. The shading
+   lies over the whole page (multiplied in, like a tint on paper) so that
+   anything with its own paper background, such as the archive's sticky
+   filter bar, is shaded the same as the page around it. */
 
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 50%, rgba(110, 85, 50, 0.16) 100%);
+  mix-blend-mode: multiply;
   pointer-events: none;
-  z-index: -1;
+  z-index: 50;
 }
 
 /* reading column */

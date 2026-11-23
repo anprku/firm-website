@@ -251,7 +251,9 @@ not installed, follow the README's one-time setup; don't skip the check.
   owner chose `#5c5c5c` over the earlier `#666` once the shading was added.
 - **The background** is the paper texture (`assets/paper-grain.jpg`), shaded
   very slightly darker towards the edges of the window (`body::before` in
-  `css/styles.css`), on every page. The owner chose this over a gold border
+  `css/styles.css`), on every page. The shading lies over the whole page,
+  multiplied in, so anything with its own paper background (such as the
+  archive's sticky filter bar) is shaded the same as the page around it. The owner chose this over a gold border
   and a faint tree watermark; don't add borders, watermarks, photographs or
   patterns.
 - **Pale gold `#c8a46b` is the site's accent**, for the thin rules, borders,
