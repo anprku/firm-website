@@ -273,6 +273,8 @@ not installed, follow the README's one-time setup; don't skip the check.
   automatic jobs keep the year current.
 - **Printing.** An article prints (or saves as PDF) on white A4 with the name
   block at the top (tree, "APK Law, Advocates", gold rule, "Bengaluru"),
+  drawn in the same proportions as on screen: the tree close above the name
+  and a short gold rule that fades at both ends,
   black text, tables that don't split a row across pages, and a footer
   ending "· apklaw.in". The paper, shading, back link and Earlier/Later
   links don't print. This lives in the `@media print` section of
