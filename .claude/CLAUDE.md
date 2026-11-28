@@ -300,12 +300,16 @@ not installed, follow the README's one-time setup; don't skip the check.
     page still fits once the text reaches its 14px minimum.
   - Windows laptops usually scale the display to 125% or 150%, which leaves
     the browser window at least twice as wide as it is tall. For such windows
-    (`min-aspect-ratio: 2/1`) the logo and the space around the columns are
-    slightly smaller and `--fs` may rise to `min(1.25vw, 2.5vh, 18px)` if
-    that is larger, so the home page text is close to the articles' 17px
-    instead of shrinking to 14px. The column width stays `65.5 × --fs`: the
-    owner tried wider columns (78) and found the long lines uncomfortable,
-    so don't widen them. Mac windows are not that wide and are unaffected.
+    (`min-aspect-ratio: 2/1`) the owner wanted the pages to look alike: the
+    home page `--fs` is the larger of the usual formula and
+    `min(1.25vw, 2.5vh, 18px)`, plus 1px; and the archive and 404 page have
+    a root size of 15px instead of 16px, so their text is about 1px smaller.
+    Articles keep their full reading size. To fit the larger home text, the logo, the space
+    around the columns, and the line and paragraph spacing (line height
+    1.42) are slightly smaller there. The column width stays `65.5 × --fs`:
+    the owner tried wider columns (78) and found the long lines
+    uncomfortable, so don't widen them. Mac windows are not that wide and
+    are unaffected.
   - The width ratio 65.5 was chosen because ratios from 64.5 to 67 leave no
     justified line with stretched word gaps at any common size. If the home page
     text changes, run `check_pages.js`; if it reports wide gaps or scrolling,

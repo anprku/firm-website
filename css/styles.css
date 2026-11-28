@@ -709,15 +709,18 @@ body.home .home-col-right .section-block {
 }
 
 /* wide, short windows (most Windows laptops, whose display scaling leaves
-   the browser window much wider than it is tall): the page keeps its usual
-   line length, but the logo and the space around the columns are a little
-   smaller, so the text can be larger and still fit: up to 18px, close to
-   the articles' 17px. The text is never smaller than the formula above
-   gives, and Mac-shaped windows are not affected. */
+   the browser window much wider than it is tall). The owner asked for the
+   home page text to be one pixel larger, and the archive's and 404 page's
+   text one pixel smaller, than they would otherwise be, so that the pages
+   look alike on Windows. The home page keeps its usual line length; to fit the
+   larger text, the logo, the space around the columns and the spacing
+   between lines and paragraphs are a little smaller. The home text is never
+   smaller than the formula above gives, and Mac-shaped windows are not
+   affected. */
 
 @media (min-width: 900px) and (min-aspect-ratio: 2/1) {
   body.home {
-    --fs: clamp(14px, max(min(1.18vw, 2.3vh), min(1.25vw, 2.5vh, 18px)), 24px);
+    --fs: clamp(14px, calc(max(min(1.18vw, 2.3vh), min(1.25vw, 2.5vh, 18px)) + 1px), 24px);
   }
 
   body.home header {
@@ -725,17 +728,31 @@ body.home .home-col-right .section-block {
   }
 
   body.home .logo-wrap img {
-    width: calc(var(--fs) * 4.8);
-    margin-bottom: calc(var(--fs) * -0.8);
+    width: calc(var(--fs) * 4.4);
+    margin-bottom: calc(var(--fs) * -0.75);
   }
 
   body.home main.home-grid {
-    padding-top: calc(var(--fs) * 1.0);
-    padding-bottom: calc(var(--fs) * 1.0);
+    padding-top: calc(var(--fs) * 0.8);
+    padding-bottom: calc(var(--fs) * 0.8);
+  }
+
+  body.home main.home-grid .section-block p {
+    line-height: 1.42;
+    margin-bottom: calc(var(--fs) * 0.4);
   }
 
   body.home footer {
-    padding: calc(var(--fs) * 0.6) 0;
+    padding: calc(var(--fs) * 0.5) 0;
+  }
+
+  /* the archive and the 404 page are sized in rem, so a root size of 15px
+     instead of 16px makes their text about a pixel smaller. Articles keep
+     their full reading size. */
+
+  html:has(.archive-list),
+  html:has(.error-wrap) {
+    font-size: 93.75%;
   }
 }
 
