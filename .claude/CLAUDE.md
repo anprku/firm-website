@@ -298,6 +298,14 @@ not installed, follow the README's one-time setup; don't skip the check.
     scrolling. Don't replace these with fixed sizes. On short windows (640px
     high or less) the space around the columns is trimmed slightly so the
     page still fits once the text reaches its 14px minimum.
+  - Windows laptops usually scale the display to 125% or 150%, which leaves
+    the browser window at least twice as wide as it is tall. For such windows
+    (`min-aspect-ratio: 2/1`) the columns may widen to `78 × --fs` (never
+    closer than 2rem to the window's edges), and `--fs` may rise to
+    `min(1.25vw, 2.65vh, 18px)` if that is larger, so the home page text
+    is close to the articles' 17px instead of shrinking to 14px. The owner
+    asked for this so Windows readers see similar sizes on every page. Mac
+    windows are not that wide, so they are unaffected.
   - The width ratio 65.5 was chosen because ratios from 64.5 to 67 leave no
     justified line with stretched word gaps at any common size. If the home page
     text changes, run `check_pages.js`; if it reports wide gaps or scrolling,
