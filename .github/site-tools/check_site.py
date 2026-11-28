@@ -7,7 +7,8 @@ repository and reports anything inconsistent: an article missing from the
 archive list, the sitemap or the feed, a broken link (including links to
 a place within a page), a missing share card or tag, a
 stylesheet version out of step, anything loaded from another website, or a
-change to the wording of the home page Notice.
+change to the wording of the home page Notice, or straight quotation marks
+in an article (the owner wants curly ones).
 
 Exit code 0 means no problems; 1 means at least one problem was found.
 "Notes" are things for the owner to decide (such as wording) and do not fail.
@@ -129,6 +130,17 @@ def check_articles():
             problem(f"{path}: year differs between the page ({date.group(2)}) and the "
                     f"archive list (data-year {year}, shown {list_year})")
         dates.append((int(date.group(2)), MONTHS[date.group(1)], f))
+
+        # the owner wants curly quotation marks throughout (“ ” ‘ ’)
+        body = re.sub(r"<script.*?</script>", "", s[s.find("<body"):], flags=re.S)
+        straight = len(re.findall(r"[\"']", re.sub(r"<[^>]+>", "", body)))
+        head = s[:s.find("<body")]
+        shown = re.findall(r"<title>(.*?)</title>", head, re.S) + re.findall(
+            r'<meta (?:name|property)="(?:description|og:title|og:description|og:image:alt)" content="([^"]*)"', head)
+        straight += sum(len(re.findall(r"[\"']", html.unescape(t))) for t in shown)
+        if straight or re.search(r"&(quot|#34|#39|#x27);", body):
+            problem(f"{path}: has straight quotation marks in its text; use curly ones "
+                    "(“ ” ‘ ’), as the owner asked")
 
         if '<main class="article-body">' not in s or "</main>" not in s:
             problem(f"{path}: missing <main class=\"article-body\">")

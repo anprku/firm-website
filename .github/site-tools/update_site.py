@@ -32,7 +32,7 @@ from PIL import Image, ImageDraw, ImageFont
 SITE = "https://apklaw.in"
 NAV_VERSION = 2
 # Raise by one after changing make_card, so every share card is made again.
-CARD_VERSION = 2
+CARD_VERSION = 3
 CARD_STAMP = "assets/share/.card-version"
 HERE = os.path.dirname(os.path.abspath(__file__))
 FONTS = os.path.join(HERE, "fonts")

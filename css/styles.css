@@ -564,12 +564,25 @@ blockquote {
 
 /* ---------- Home page ---------- */
 
-/* footer sits at the foot of the window rather than mid-screen */
+/* footer sits at the foot of the window rather than mid-screen (home and 404) */
 
-body.home {
+body.home,
+body.notfound {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+body.notfound main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+body.notfound .error-wrap {
+  flex: 1 0 auto;
 }
 
 body.home main {
@@ -935,6 +948,24 @@ footer p {
 
 .archive-list ul li.hidden {
   display: none;
+}
+
+/* phones: the filters sit on two even lines, "All · General Commercial"
+   and "Corporate/M&A · Regulatory", with no separator dot at the start of a
+   line. The separator between the two pairs becomes the line break. */
+
+@media (max-width: 700px) {
+  .filter-label,
+  .filter-label + .filter-separator {
+    display: none;
+  }
+
+  .filter-bar button[data-filter-subject="general-commercial"] + .filter-separator {
+    flex-basis: 100%;
+    height: 0;
+    overflow: hidden;
+    font-size: 0;
+  }
 }
 
 /* ---------- Page not found ---------- */
