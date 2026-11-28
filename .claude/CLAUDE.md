@@ -282,6 +282,10 @@ not installed, follow the README's one-time setup; don't skip the check.
   article's card and `assets/share/default.jpg`, all drawn by `make_card` in
   `update_site.py`). Any change to the name block is made in all of these
   places in the same pull request, without the owner having to ask for each.
+  On screens 900px and wider the 404 page (`body class="notfound"`) shares
+  the home page's sizing rules for the header, name block and footer, so
+  the tree, name and "Bengaluru" are exactly the same size on both pages,
+  Windows included; keep `body.notfound` next to `body.home` in those rules.
   After changing `make_card`, raise `CARD_VERSION` in `update_site.py` and run
   it; it makes every card again, the default card included.
 - **The home page** (`index.html`, `body class="home"`):
