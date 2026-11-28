@@ -251,9 +251,8 @@ not installed, follow the README's one-time setup; don't skip the check.
   tables (`article-table`, `table-caption`), footnote markers and the Notes
   section (`article-notes`). Don't add `<style>` blocks to individual pages.
 - **Paragraphs are justified, without automatic hyphenation**, on every screen
-  size, phones included. The owner chose this. The one exception is the small
-  italic disclaimer at the end of each article, which is aligned left (ragged
-  right) so its short lines have no stretched gaps; the owner approved this.
+  size, phones included. The owner chose this, and also chose to keep the
+  article disclaimer justified when offered ragged-right alignment for it.
 - **Colours for text:** body text `#2b2b2b` and secondary text (back links,
   dates, years, footer, "Bengaluru") `#5c5c5c`, which keep at least 4.5:1
   contrast on the paper, including where it is shaded near the edges. The
@@ -296,11 +295,11 @@ not installed, follow the README's one-time setup; don't skip the check.
   the home page's sizing rules for the header, name block and footer, so
   the tree, name and "Bengaluru" are exactly the same size on both pages,
   Windows included; keep `body.notfound` next to `body.home` in those rules.
+  After changing `make_card`, raise `CARD_VERSION` in `update_site.py` and run
+  it; it makes every card again, the default card included.
 - **Archive filters on phones** (700px and narrower) sit on two even lines,
   "All · General Commercial" and "Corporate/M&A · Regulatory", without the
   "Filter by" label, so no line starts with a separator dot.
-  After changing `make_card`, raise `CARD_VERSION` in `update_site.py` and run
-  it; it makes every card again, the default card included.
 - **The home page** (`index.html`, `body class="home"`):
   - Phones and small tablets (under 900px): one column, in the order Notice,
     Notes and Reflections, The Practice.
