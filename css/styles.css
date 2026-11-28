@@ -1026,7 +1026,7 @@ footer p {
   header:has(~ main.article-body) .back-link::before {
     content: "APK Law, Advocates";
     display: block;
-    padding-top: 15mm;
+    padding-top: 12.6mm;
     background: url("../assets/logo.png") center top / 20mm auto no-repeat;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
@@ -1041,8 +1041,11 @@ footer p {
     display: block;
     width: 22mm;
     margin: 1.2mm auto 0 auto;
-    padding-top: 1.2mm;
-    border-top: 0.4pt solid #c8a46b;
+    padding-top: 1.4mm;
+    /* a short gold rule that fades at both ends, as on screen */
+    background: linear-gradient(to right, transparent, #c8a46b, transparent) center top / 10mm 0.5pt no-repeat;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
     font-family: "EB Garamond", serif;
     font-size: 9.5pt;
     letter-spacing: 0.06em;
