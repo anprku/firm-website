@@ -16,7 +16,8 @@ language and avoid jargon.
 - **The author's words are final.** When turning text into a page, never
   reword, correct, summarise or "improve" the author's writing, citations or
   punctuation. If something looks like a typo, point it out and ask; do not
-  change it.
+  change it. The one standing exception: quotation marks and apostrophes are
+  always curly (see "Quotation marks" below), at the owner's instruction.
 - **Check before every pull request.** Run both checks (see "Checking the
   site" below); both must report "No problems found".
 - **Changes go through a pull request** from the working branch into `main`.
@@ -141,7 +142,13 @@ Formatting conventions, as used in the existing articles:
   ```
 
 - Escape `&` as `&amp;` in the text, and `<` and `>` as `&lt;` and `&gt;`.
-  Keep the author's quotation marks and dashes as given.
+  Keep the author's dashes as given.
+- **Quotation marks:** always curly. The owner asked for this ("always
+  curly"): turn every straight `"` into “ or ” and every straight `'` into ‘
+  or ’ (apostrophes, as in company’s and founders’, are ’), in the article
+  text, its title, the archive entry and the description. `check_site.py`
+  reports any straight quotation mark left in an article. Change nothing
+  else in the author's punctuation.
 - The footer reads "© YEAR APK Law, Advocates" with the same year as the other
   pages. The automatic jobs keep the year current on every page.
 
@@ -244,7 +251,9 @@ not installed, follow the README's one-time setup; don't skip the check.
   tables (`article-table`, `table-caption`), footnote markers and the Notes
   section (`article-notes`). Don't add `<style>` blocks to individual pages.
 - **Paragraphs are justified, without automatic hyphenation**, on every screen
-  size, phones included. The owner chose this.
+  size, phones included. The owner chose this. The one exception is the small
+  italic disclaimer at the end of each article, which is aligned left (ragged
+  right) so its short lines have no stretched gaps; the owner approved this.
 - **Colours for text:** body text `#2b2b2b` and secondary text (back links,
   dates, years, footer, "Bengaluru") `#5c5c5c`, which keep at least 4.5:1
   contrast on the paper, including where it is shaded near the edges. The
@@ -282,10 +291,14 @@ not installed, follow the README's one-time setup; don't skip the check.
   article's card and `assets/share/default.jpg`, all drawn by `make_card` in
   `update_site.py`). Any change to the name block is made in all of these
   places in the same pull request, without the owner having to ask for each.
+  The 404 page's footer sits at the foot of the window, as on the home page.
   On screens 900px and wider the 404 page (`body class="notfound"`) shares
   the home page's sizing rules for the header, name block and footer, so
   the tree, name and "Bengaluru" are exactly the same size on both pages,
   Windows included; keep `body.notfound` next to `body.home` in those rules.
+- **Archive filters on phones** (700px and narrower) sit on two even lines,
+  "All · General Commercial" and "Corporate/M&A · Regulatory", without the
+  "Filter by" label, so no line starts with a separator dot.
   After changing `make_card`, raise `CARD_VERSION` in `update_site.py` and run
   it; it makes every card again, the default card included.
 - **The home page** (`index.html`, `body class="home"`):
