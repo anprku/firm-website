@@ -698,22 +698,6 @@ body.home .home-col-right .section-block {
   }
 }
 
-/* wide, short windows (most Windows laptops, whose display scaling leaves
-   the browser window much wider than it is tall): the columns use the spare
-   width for longer lines, so the page needs less height and the text can be
-   larger, up to 18px, close to the articles' 17px. The text is never smaller
-   than the formula above gives, and Mac-shaped windows are not affected. */
-
-@media (min-width: 900px) and (min-aspect-ratio: 2/1) {
-  body.home {
-    --fs: clamp(14px, max(min(1.18vw, 2.3vh), min(1.25vw, 2.65vh, 18px)), 24px);
-  }
-
-  body.home main.home-grid {
-    max-width: min(calc(var(--fs) * 78), calc(100vw - 4rem));
-  }
-}
-
 /* short laptop windows: slightly less space around the columns, so the
    page still fits without scrolling once the text is at its 14px minimum */
 
@@ -721,6 +705,37 @@ body.home .home-col-right .section-block {
   body.home main.home-grid {
     padding-top: calc(var(--fs) * 1.1);
     padding-bottom: calc(var(--fs) * 1.1);
+  }
+}
+
+/* wide, short windows (most Windows laptops, whose display scaling leaves
+   the browser window much wider than it is tall): the page keeps its usual
+   line length, but the logo and the space around the columns are a little
+   smaller, so the text can be larger and still fit: up to 18px, close to
+   the articles' 17px. The text is never smaller than the formula above
+   gives, and Mac-shaped windows are not affected. */
+
+@media (min-width: 900px) and (min-aspect-ratio: 2/1) {
+  body.home {
+    --fs: clamp(14px, max(min(1.18vw, 2.3vh), min(1.25vw, 2.5vh, 18px)), 24px);
+  }
+
+  body.home header {
+    padding-top: calc(var(--fs) * 0.5);
+  }
+
+  body.home .logo-wrap img {
+    width: calc(var(--fs) * 4.8);
+    margin-bottom: calc(var(--fs) * -0.8);
+  }
+
+  body.home main.home-grid {
+    padding-top: calc(var(--fs) * 1.0);
+    padding-bottom: calc(var(--fs) * 1.0);
+  }
+
+  body.home footer {
+    padding: calc(var(--fs) * 0.6) 0;
   }
 }
 
