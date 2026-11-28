@@ -710,13 +710,15 @@ body.home .home-col-right .section-block {
 
 /* wide, short windows (most Windows laptops, whose display scaling leaves
    the browser window much wider than it is tall). The owner asked for the
-   home page text to be one pixel larger, and the archive's and 404 page's
-   text one pixel smaller, than they would otherwise be, so that the pages
-   look alike on Windows. The home page keeps its usual line length; to fit the
-   larger text, the logo, the space around the columns and the spacing
-   between lines and paragraphs are a little smaller. The home text is never
-   smaller than the formula above gives, and Mac-shaped windows are not
-   affected. */
+   home page and the archive to look the same size on Windows, as they do
+   on a Mac. The home page keeps its usual line length; to fit larger text,
+   the logo, the space around the columns and the spacing between lines
+   and paragraphs are a little smaller. On laptop-width windows the home
+   text then rises to at most 17px, the archive's size; on short windows
+   (Windows at 150%), where it cannot reach 17px, the archive and the 404
+   page are a pixel smaller instead. The home text is never smaller than the
+   formula above gives, articles keep their reading size, and Mac-shaped
+   windows are not affected. */
 
 @media (min-width: 900px) and (min-aspect-ratio: 2/1) {
   body.home {
@@ -746,10 +748,21 @@ body.home .home-col-right .section-block {
     padding: calc(var(--fs) * 0.5) 0;
   }
 
-  /* the archive and the 404 page are sized in rem, so a root size of 15px
-     instead of 16px makes their text about a pixel smaller. Articles keep
-     their full reading size. */
+}
 
+/* laptop widths: the home text stops at 17px, matching the archive */
+
+@media (min-width: 900px) and (max-width: 1600px) and (min-aspect-ratio: 2/1) {
+  body.home {
+    --fs: clamp(14px, max(min(1.18vw, 2.3vh), min(calc(min(1.25vw, 2.5vh) + 1px), 17px)), 24px);
+  }
+}
+
+/* short wide windows (Windows at 150%): the archive and the 404 page are
+   sized in rem, so a root size of 15px instead of 16px makes their text
+   about a pixel smaller, to match the home page */
+
+@media (min-width: 900px) and (max-height: 620px) and (min-aspect-ratio: 2/1) {
   html:has(.archive-list),
   html:has(.error-wrap) {
     font-size: 93.75%;
