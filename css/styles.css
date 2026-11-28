@@ -795,6 +795,111 @@ footer p {
   }
 }
 
+/* ---------- Archive filters ---------- */
+
+/* the subject filters stay at the top of the window while the list scrolls */
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.2rem;
+  justify-content: center;
+  margin: 0 0 2rem 0;
+  padding: 0.8rem 0;
+  font-family: 'EB Garamond', serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  position: sticky;
+  top: 0;
+  background-color: #f4f2ec;
+  background-image: url("../assets/paper-grain.jpg");
+  background-size: 1400px;
+  background-repeat: repeat;
+  border-bottom: 1px solid #ddd8ce;
+  z-index: 10;
+}
+
+.filter-bar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: #6e604c;
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  transition: color 0.2s ease;
+}
+
+.filter-bar button:focus-visible {
+  outline: none;
+  color: #c8a46b;
+}
+
+.filter-bar button:hover {
+  color: #c8a46b;
+}
+
+.filter-bar button.active {
+  color: #c8a46b;
+  border-bottom: 1px solid #c8a46b;
+}
+
+.filter-label {
+  color: #6e604c;
+  font-family: 'EB Garamond', serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.archive-list ul li {
+  transition: opacity 0.2s ease;
+}
+
+.archive-list ul li.hidden {
+  display: none;
+}
+
+/* ---------- Page not found ---------- */
+
+.error-wrap {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 20px;
+}
+
+.error-code {
+  font-family: "Playfair Display", serif;
+  font-size: 4.25rem;
+  font-weight: 400;
+  color: #2b2b2b;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.5rem 0;
+  line-height: 1;
+}
+
+.error-divider {
+  width: 34px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #c8a46b, transparent);
+  margin: 0.5rem auto 1.2rem auto;
+}
+
+.error-message {
+  font-family: "EB Garamond", serif;
+  font-size: 1.095rem;
+  color: #555;
+  margin: 0 0 2rem 0;
+}
+
 /* ---------- Print ---------- */
 
 @page {
