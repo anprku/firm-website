@@ -236,15 +236,6 @@ header:has(.site-place) {
   border-bottom: 1px solid #c8a46b;
 }
 
-/* divider between sections */
-
-.section-sep {
-  max-width: 750px;
-  margin: 1rem auto;
-  border: none;
-  border-top: 1px solid #ddd8ce;
-}
-
 /* ---------- Browse Button ---------- */
 
 .btn-browse {
@@ -442,13 +433,6 @@ footer {
   hyphens: manual;
 }
 
-/* case law / citations */
-
-.case-law {
-  font-style: italic;
-  line-height: inherit;
-}
-
 /* statutory or contractual quotation blocks */
 
 blockquote {
@@ -630,18 +614,13 @@ body.home .home-col-right .section-block {
   body.home header,
   body.notfound header {
     padding-top: calc(var(--fs) * 0.75);
-    padding-bottom: calc(var(--fs) * 0.35);
+    padding-bottom: calc(var(--fs) * 0.25);
   }
 
   body.home .site-place,
   body.notfound .site-place {
     font-size: calc(var(--fs) * 0.92);
     margin: calc(var(--fs) * 0.05) 0 0 0;
-  }
-
-  body.home header,
-  body.notfound header {
-    padding-bottom: calc(var(--fs) * 0.25);
   }
 
   body.home .logo-wrap img,
